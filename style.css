@@ -8,7 +8,7 @@ body {
   margin: 0;
   padding: 0; }
 
-header {
+.header-section {
   background-image: url(https://images.unsplash.com/photo-1490243248048-8a68b3b77805?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1489&q=80);
   background-size: cover;
   background-position: center;
@@ -16,4 +16,12 @@ header {
   height: 100%; }
 
 .shopping-cart {
-  margin-top: 10px; }
+  margin-top: 10px;
+  display: flex; }
+
+.landingpage-section {
+  height: 100vh; }
+
+.footer-section {
+  background-color: #dcc5a8;
+  height: 20vh; }
