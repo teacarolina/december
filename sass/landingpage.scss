@@ -1,3 +1,15 @@
 .landingpage-section {
+    display: flex;
+    flex-wrap: wrap;
     height: 100vh;
+}
+
+.card {
+    width: 20%;
+    height: 20%;
+    margin: 1%;
+}
+
+.input--form {
+    margin-left: 1%;
 }

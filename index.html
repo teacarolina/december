@@ -28,20 +28,39 @@
             <div class="div-cart">
                 <a class="shopping-cart" href="cart.html"> 
                     <i class="fas fa-shopping-basket"></i>
+                  </a>
                 </div>
           </nav>		
     </header>
 
     <!-- landing page -->
     <section class="landingpage-section">
-
+      <div class="card">
+        <div class="container">
+          <h4><b>Namn</b></h4> 
+          <p>Beskrivning</p> 
+          <p>Pris</p>
+        </div>
+      </div>
+      
+  <!--Ska den vara innuti form eller utanför??-->
     </section>
 
+    <form class="input--form">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name"><br><br>
+      <label for="description">Description:</label>
+      <input type="text" id="description" name="description"><br><br>
+      <label for="price">Price:</label>
+      <input type="text" id="price" name="price"><br><br>
+      
+    </form>
+    <button id="input--button">Submit</button>
     <!-- footer -->
     <footer class="footer-section">
-
+      
     </footer>
 
-
+    <script src="cards.js"></script>
   </body>
 </html>
