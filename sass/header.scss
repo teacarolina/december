@@ -8,6 +8,9 @@
 
 .shopping-cart {
     margin-top: 10px;
-    display: flex;
 }
 
+.shopping-cart {
+    display: flex;
+    justify-content: flex-end;
+}
