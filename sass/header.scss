@@ -9,6 +9,9 @@
 
 .shopping-cart {
     margin-top: 10px;
-    
 }
 
+.shopping-cart {
+    display: flex;
+    justify-content: flex-end;
+}
