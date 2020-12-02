@@ -1,0 +1,23 @@
+{
+  "name": "gruppsju",
+  "version": "1.0.0",
+  "description": "",
+  "main": "shoppingcart.js",
+  "scripts": {
+    "start": "node-sass sass/main.scss style.css -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/teacarolina/december.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/teacarolina/december/issues"
+  },
+  "homepage": "https://github.com/teacarolina/december#readme",
+  "dependencies": {
+    "node-sass": "^5.0.0"
+  }
+}
