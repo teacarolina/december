@@ -1,27 +1,10 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
-* {
-  box-sizing: border-box; }
 
-body {
-  font-family: 'Roboto', sans-serif;
-  font-size: 16px;
-  margin: 0;
-  padding: 0; }
+/* .shopping-cart {
+    display: flex;
+    justify-content: flex-end;
+}
 
-.header-section {
-  background-image: url(https://images.unsplash.com/photo-1490243248048-8a68b3b77805?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1489&q=80);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  height: 100%; }
-
-.shopping-cart {
-  margin-top: 10px; }
-
-.shopping-cart {
-  display: flex;
-  justify-content: flex-end; }
-
+*/
 .landingpage-section {
   display: flex;
   flex-wrap: wrap;
@@ -33,7 +16,30 @@ body {
   margin: 1%; }
 
 .input--form {
-  margin-left: 1%; }
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+  text-decoration: none; }
+
+.price {
+  color: grey;
+  font-size: 22px; }
+
+.card button {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px; }
+
+.card button:hover {
+  opacity: 0.7; }
 
 .footer-section {
   background-color: #dcc5a8;
