@@ -1,4 +1,5 @@
-window.addEventListener("load", () => {
+//window.addEventListener("load", () => {
+    function createCard() {
     var name = localStorage.getItem("nameValue")
     var description = localStorage.getItem("descriptionValue")
     var price = localStorage.getItem("priceValue")
@@ -32,4 +33,7 @@ window.addEventListener("load", () => {
     divButton.innerHTML = "Add to cart"
     div.appendChild(pButton)
     pButton.appendChild(divButton)
-    })
+    }//)
+
+    var button = document.querySelector("#tryButton")
+    button.addEventListener("click", createCard)
