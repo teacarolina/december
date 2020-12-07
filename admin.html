@@ -7,10 +7,10 @@
 	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
     <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="crossorigin="anonymous"/>
     <link rel="stylesheet" href="style.css"/>
-    <script src="cardsAdmin.js" defer></script>
+    <script src="admin.js" defer></script>
     <title>Admin</title>
 </head>
-<body>
+<body onload="view();"> <!--Testa ta bort den här sen?? Emilia/Tea-->
   <!--OBS! IDE! Lägg till lösenord på den här sidan så bara admin kommer in-->
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -32,13 +32,13 @@
       <h2>Add product</h2>
       <form class="input--form">
         <label for="name">Name</label></br>
-        <input type="text" id="name" name="name"><br><br>
+        <input type="text" id="product--name" name="name"><br><br>
         <label for="description">Description</label></br>
-        <input type="text" id="description" name="description"><br><br>
-        <label for="price">Price</label></br>
-        <input type="text" id="price" name="price"><br><br>
+        <input type="text" id="product--description" name="description"><br><br>
+        <!--<label for="price">Price</label></br>
+        <input type="text" id="price" name="price"><br><br>-->
       </form>
-      <button id="button">Submit</button>
+      <button onclick="save();" id="button">Submit</button>
     </div>
 
     <footer class="footer-section">
