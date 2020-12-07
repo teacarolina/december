@@ -19,7 +19,6 @@ function view() {
     var homePage = document.querySelector(".landingpage-section")
     if(localStorage.getItem("data") != null && homePage){
         var test = JSON.parse(localStorage.getItem("data")) 
-        homePage.innerHTML = "";
         Object.values(test).map(item => { 
         homePage.innerHTML += `
         <section class="landingpage-section">
