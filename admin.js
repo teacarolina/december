@@ -2,9 +2,10 @@ function save(){
     //new data input from admin 
     var name = document.querySelector("#product--name").value;
     var description = document.querySelector("#product--description").value
+    var price = document.querySelector("#product--price").value;
     var id = Math.random()
 
-    var price = document.querySelector("#product--price").value;
+    
 
     //storing an array in local storage
     if(localStorage.getItem("data") == null){
