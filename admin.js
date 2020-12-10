@@ -32,6 +32,8 @@ function removeElement(id) {
         var newData = dataCopy.filter(item => item.id !== id)
         //storing again in local storage without deleted id 
         localStorage.setItem("data",JSON.stringify (newData)); 
+
+        location.reload();
   }
 
 //to edit object in local storage
@@ -53,6 +55,7 @@ function editElement(id) {
            editData = localStorage.setItem("data", JSON.stringify(editData))
         }
     }
+    location.reload();
 }
 
 function view() { 

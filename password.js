@@ -4,7 +4,7 @@ function askPass() {
     "use strict";
     userResponse = prompt("What's the password?", "00000");
     if (userResponse === "12345") {
-        window.open("file:///Users/emiliajosefsson/Documents/gruppsjuinlamning/admin-index.html");
+        window.open("admin-index.html");
     }
 }
 
