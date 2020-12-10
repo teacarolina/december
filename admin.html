@@ -10,7 +10,8 @@
     <script src="admin.js" defer></script>
     <title>Admin</title>
 </head>
-<body onload="view();"> <!--Testa ta bort den här sen?? Emilia/Tea-->
+<!--Call function view() on load-->
+<body onload="view();">
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
                    <a class="navbar-brand" href="#"></a>
@@ -36,6 +37,7 @@
         <label for="price">Price</label></br>
         <input type="number" id="product--price" name="price"><br><br>
       </form>
+      <!--Call function save() on button click-->
       <button onclick="save();" id="button">Submit</button>
     </div>
 

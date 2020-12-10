@@ -53,8 +53,30 @@ body {
   opacity: 0.7; }
 
 .footer-section {
-  background-color: #dcc5a8;
-  height: 20vh; }
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #A4C1C5;
+  height: 60%;
+  max-width: 100%; }
+
+.footer--div {
+  width: 20%;
+  text-align: center; }
+
+.footer--icons {
+  font-size: 30px;
+  margin-right: 1%; }
+
+#login {
+  transition-duration: 0.4s;
+  background-color: black;
+  color: #A4C1C5;
+  border-radius: 6px; }
+
+.p--socialmedia {
+  margin-top: 15%; }
 
 /*for admin page with inputfield*/
 .input--div {
