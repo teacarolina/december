@@ -119,7 +119,6 @@ function removeProduct(e) {
   }
   console.log(productId);
   // remove from the local storage
-  removeProductLocalStorage(productId);
 }
 
 
