@@ -1,3 +1,4 @@
+<!--Admin home page to edit and remove products, looks like home page but with additional buttons-->
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -8,7 +9,6 @@
     <link rel="stylesheet" href="style.css" />
     <script src="shoppingcart.js" defer></script>
     <script src="admin.js" defer></script>
-    <script src="password.js" defer></script>
     <title>Document</title>
   </head>
   <body onload="view();">
@@ -24,18 +24,13 @@
 			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 			  <div class="navbar-nav">
 				<a class="nav-link active" href="index.html">Home<span class="sr-only">(current)</span></a>
-                <a class="nav-link" href="#contact">Contact</a>
-                
+                <a class="nav-link" href="admin.html">Admin Add Product</a>
 			  </div>
             </div>
-            <div class="div-cart">
-                <a class="shopping-cart" href="cart.html"> 
-                    <i class="fas fa-shopping-basket"></i>
-                </a>
-                </div>
           </nav>
     </header>
     
+    <h1 class="admin-index">Admin Page for products</h1>
     <!-- landing page -->
     <section class="landingpage-section">
       <div class="card">
@@ -49,7 +44,7 @@
 
     <!-- footer -->
     <footer class="footer-section">
-      <button id="login">Login</button>
+
     </footer>
 
   </body>
