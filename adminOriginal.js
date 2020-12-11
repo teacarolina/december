@@ -91,10 +91,10 @@ function view() {
         homePage.innerHTML += `
         <section class="landingpage-section">
         <div class="card">  
-        <h1 class="product-title">${item.name}</h1>
-        <p class="product-price">${item.price}</p>
+        <h1>${item.name}</h1>
+        <p class="price">${item.price}</p>
         <p>${item.description}</p>
-        <p><button class="btn-add-to-cart product-id" data-id="${item.id}">Add to Cart</button></p>
+        <p><button>Add to Cart</button></p>
       </div>
      
     </section>
