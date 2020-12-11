@@ -43,7 +43,7 @@ function addProduct(e) {
 function getProductInfo(product) {
   ///// comment
   const productInfo = {
-    productImage: product.querySelector(".product-image").src,
+    // productImage: product.querySelector(".product-image").src,
     productTitle: product.querySelector(".product-title").textContent,
     productPrice: product.querySelector(".product-price").textContent,
     productId: product.querySelector(".product-id").getAttribute("data-id")
@@ -61,9 +61,6 @@ function addToCart(product) {
   row.innerHTML = `
         <tr>
             <td>
-                <img src="${product.productImage}" width=100>
-            </td>
-            <td>
                 ${product.productTitle}
             </td>
             <td>
@@ -75,6 +72,13 @@ function addToCart(product) {
 
         </tr>
     `;
+///////////////////////////////////////////////////////////////
+// add this when img is added to admin-add
+//     <td>
+//         <img src="${product.productImage}" width=100>
+//     </td>
+///////////////////////////////////////////////////////////////
+    
   // add to the shopping cart
   shoppingCartContent.appendChild(row);
 
@@ -166,9 +170,6 @@ function loadFromLocalStorage() {
     // pull the content
     row.innerHTML = `
         <tr>
-            <td>
-                <img src="${product.productImage}" width=100>
-            </td>
                 <td>
                     ${product.productTitle}
                 </td>
@@ -183,3 +184,11 @@ function loadFromLocalStorage() {
         shoppingCartContent.appendChild(row);
   });
 }
+
+
+///////////////////////////////////////////////////////////////
+// add this when img is added to admin-add
+//     <td>
+//         <img src="${product.productImage}" width=100>
+//     </td>
+///////////////////////////////////////////////////////////////
