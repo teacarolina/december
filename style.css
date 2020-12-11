@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
 * {
   box-sizing: border-box; }
@@ -24,7 +25,8 @@ body {
 */
 .landingpage-section {
   display: flex;
-  flex-wrap: wrap; }
+  flex-wrap: wrap;
+  justify-content: space-around; }
 
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -52,6 +54,10 @@ body {
 .card button:hover {
   opacity: 0.7; }
 
+.bildtest {
+  max-width: 100%;
+  max-height: 100%; }
+
 .footer-section {
   display: flex;
   flex-wrap: wrap;
@@ -78,6 +84,10 @@ body {
 .p--socialmedia {
   margin-top: 15%; }
 
+/*fixa i mediaqueries så den är fixed/tea*/
+#admin--footer {
+  height: 40px; }
+
 /*for admin page with inputfield*/
 .input--div {
   display: flex;
@@ -89,13 +99,13 @@ body {
 .input--form {
   margin-top: 2%; }
 
-#name, #description, #price {
+#product--name, #product--description, #product--price {
   border-radius: 15px;
   padding: 1%;
   /*so the line around the fields doesn't appear when clicked since the border radius is modified*/
   outline: none; }
 
-#button {
+.product--add {
   border-radius: 15px;
   outline: none; }
 

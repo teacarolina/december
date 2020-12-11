@@ -72,6 +72,7 @@ function view() {
         homePage.innerHTML += `
         <section class="landingpage-section">
         <div class="card">  
+        <img class="bildtest" src="https://images.unsplash.com/photo-1588099768550-4014589e03e0?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=634&q=80">
         <h1>${item.name}</h1>
         <p class="price">${item.price}</p>
         <p>${item.description}</p>
@@ -91,6 +92,7 @@ function view() {
         homePage.innerHTML += `
         <section class="landingpage-section">
         <div class="card">  
+        <img class="bildtest" src="https://images.unsplash.com/photo-1588099768550-4014589e03e0?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=634&q=80">
         <h1 class="product-title">${item.name}</h1>
         <p class="product-price">${item.price}</p>
         <p>${item.description}</p>
