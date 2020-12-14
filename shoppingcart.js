@@ -4,7 +4,6 @@
 
 const products = document.querySelector(".landingpage-section"),
   shoppingCartContent = document.querySelector(".cart-table tbody");
-btnClearCart = document.querySelector(".btn-clear-cart");
 
 ///////////////
 // Listeners //
@@ -18,9 +17,6 @@ function loadEventListeners() {
 
   // when the 'X' button is clicked from the shopping cart
   shoppingCartContent.addEventListener("click", removeProduct);
-
-  // clear cart button
-  btnClearCart.addEventListener("click", clearCartClicked);
 
   // load from local storage
   document.addEventListener("DOMContentLoaded", loadFromLocalStorage);
@@ -43,10 +39,10 @@ function addProduct(e) {
 function getProductInfo(product) {
   ///// comment
   const productInfo = {
-    // productImage: product.querySelector(".product-image").src,
+    productImage: product.querySelector(".product-image").src,
     productTitle: product.querySelector(".product-title").textContent,
     productPrice: product.querySelector(".product-price").textContent,
-    productId: product.querySelector(".product-id").getAttribute("data-id")
+    productId: product.querySelector(".product-id").getAttribute("data-id"),
   };
   // function to push 'productInfo' into the cart
   addToCart(productInfo);
@@ -59,26 +55,22 @@ function addToCart(product) {
 
   // the template for 'row'
   row.innerHTML = `
-        <tr>
+        <tr class="cart-row">
+              <td>
+          <img src="${product.productImage}" width=60>
+      </td>
             <td>
                 ${product.productTitle}
             </td>
+            <td class="cart-price">${product.productPrice}</td>
             <td>
-                ${product.productPrice}
-            </td>
-            <td>
+                <input class="cart-quantity-input" type="number" value="1">
                 <button class="remove" data-id="${product.productId}">X</button>
             </td>
 
         </tr>
     `;
-///////////////////////////////////////////////////////////////
-// add this when img is added to admin-add
-//     <td>
-//         <img src="${product.productImage}" width=100>
-//     </td>
-///////////////////////////////////////////////////////////////
-    
+
   // add to the shopping cart
   shoppingCartContent.appendChild(row);
 
@@ -112,10 +104,10 @@ function getProductsFromStorage() {
 
 // // remove product from the cart
 function removeProduct(e) {
-    let product, productId;    
+  let product, productId;
 
-    // remove from the dom
-  if (e.target.classList.contains("remove")); {
+  // remove from the dom
+  if (e.target.classList.contains("remove")) {
     e.target.parentElement.parentElement.remove();
     product = e.target.parentElement.parentElement;
     productId = product.querySelector(".remove").getAttribute("data-id");
@@ -125,37 +117,20 @@ function removeProduct(e) {
   removeProductLocalStorage(productId);
 }
 
-
 // function for removeProductLocalStorage > remove from the local storage
 function removeProductLocalStorage(productId) {
   //get the local storage data
-    let productsInStorage = getProductsFromStorage();
+  let productsInStorage = getProductsFromStorage();
 
-    //loop through the array to find the index to remove
-    productsInStorage.forEach(function(productInStorage, index) {
-      if(productInStorage.productId === productId) {
-        productsInStorage.splice(index, 1);
-      }
-    });
+  //loop through the array to find the index to remove
+  productsInStorage.map(function (productInStorage, index) {
+    if (productInStorage.productId === productId) {
+      productsInStorage.splice(index, 1);
+    }
+  });
 
-    // add the rest of the array
-    localStorage.setItem('products', JSON.stringify(productsInStorage));
-}
-
-// function for clear cart - remove all products from the cart
-function clearCartClicked() {
-  while(shoppingCartContent.firstChild) {
-    shoppingCartContent.removeChild(shoppingCartContent.firstChild);
-  }
-  
-  // when clear cart clicked > remove from local storage as well (1/2)
-  clearLocalStorage();
-  
-}
-
-// when clear cart clicked > remove from local storage as well (2/2)
-function clearLocalStorage() {
-    localStorage.clear();
+  // add the rest of the array
+  localStorage.setItem("products", JSON.stringify(productsInStorage));
 }
 
 // loads products in the shopping cart from the local storage even after refreshing (4/4)
@@ -163,32 +138,36 @@ function loadFromLocalStorage() {
   let productsInStorage = getProductsFromStorage();
 
   // LOOP through the products inside local storage and show in the shopping cart
-  productsInStorage.forEach(function (product) {
+  productsInStorage.map(function (product) {
     // create the <tr> same as addToCart
     const row = document.createElement("tr");
 
     // pull the content
     row.innerHTML = `
-        <tr>
-                <td>
-                    ${product.productTitle}
-                </td>
-                <td>
-                    ${product.productPrice}
-                </td>
+        <tr class="cart-row">
             <td>
+                <img src="${product.productImage}" width=60>
+            </td>
+            <td class="cart-title">${product.productTitle}</td>
+                <td class="cart-price">${product.productPrice}</td>
+                 <td>
+                <input class="cart-quantity-input" type="number" value="1">
                 <button class="remove" data-id="${product.productId}">X</button>
             </td>
         </tr>
         `;
-        shoppingCartContent.appendChild(row);
+    shoppingCartContent.appendChild(row);
+    // updateCartTotal();
   });
 }
 
-
-///////////////////////////////////////////////////////////////
-// add this when img is added to admin-add
-//     <td>
-//         <img src="${product.productImage}" width=100>
-//     </td>
-///////////////////////////////////////////////////////////////
+// function updateCartTotal() {
+//   let cartItemContainer = document.querySelector("tbody")[0];
+//   let cartRows = cartItemContainer.querySelector(".cart-title");
+//   for (let i = 0; i < cartRows.length; i++) {
+//     let cartRow = cartRows[0];
+//     let price = cartRow.querySelector(".cart-price")[0];
+//     let quantity = priceRow.querySelector("cart-quantity-input")[0];
+//     console.log(price, quantity);
+//   }
+// }

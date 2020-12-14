@@ -4,7 +4,6 @@
 
 const products = document.querySelector(".landingpage-section"),
   shoppingCartContent = document.querySelector(".cart-table tbody");
-btnClearCart = document.querySelector(".btn-clear-cart");
 
 ///////////////
 // Listeners //
@@ -18,9 +17,6 @@ function loadEventListeners() {
 
   // when the 'X' button is clicked from the shopping cart
   shoppingCartContent.addEventListener("click", removeProduct);
-
-  // clear cart button
-  btnClearCart.addEventListener("click", clearCartClicked);
 
   // load from local storage
   document.addEventListener("DOMContentLoaded", loadFromLocalStorage);
@@ -46,7 +42,7 @@ function getProductInfo(product) {
     productImage: product.querySelector(".product-image").src,
     productTitle: product.querySelector(".product-title").textContent,
     productPrice: product.querySelector(".product-price").textContent,
-    productId: product.querySelector(".product-id").getAttribute("data-id")
+    productId: product.querySelector(".product-id").getAttribute("data-id"),
   };
   // function to push 'productInfo' into the cart
   addToCart(productInfo);
@@ -60,9 +56,9 @@ function addToCart(product) {
   // the template for 'row'
   row.innerHTML = `
         <tr>
-            <td>
-                <img src="${product.productImage}" width=100>
-            </td>
+              <td>
+          <img src="${product.productImage}" width=60>
+      </td>
             <td>
                 ${product.productTitle}
             </td>
@@ -70,11 +66,13 @@ function addToCart(product) {
                 ${product.productPrice}
             </td>
             <td>
+                <input class="cart-quantity-input" type="number" value="1">
                 <button class="remove" data-id="${product.productId}">X</button>
             </td>
 
         </tr>
     `;
+
   // add to the shopping cart
   shoppingCartContent.appendChild(row);
 
@@ -108,10 +106,10 @@ function getProductsFromStorage() {
 
 // // remove product from the cart
 function removeProduct(e) {
-    let product, productId;    
+  let product, productId;
 
-    // remove from the dom
-  if (e.target.classList.contains("remove")); {
+  // remove from the dom
+  if (e.target.classList.contains("remove")) {
     e.target.parentElement.parentElement.remove();
     product = e.target.parentElement.parentElement;
     productId = product.querySelector(".remove").getAttribute("data-id");
@@ -121,37 +119,20 @@ function removeProduct(e) {
   removeProductLocalStorage(productId);
 }
 
-
 // function for removeProductLocalStorage > remove from the local storage
 function removeProductLocalStorage(productId) {
   //get the local storage data
-    let productsInStorage = getProductsFromStorage();
+  let productsInStorage = getProductsFromStorage();
 
-    //loop through the array to find the index to remove
-    productsInStorage.forEach(function(productInStorage, index) {
-      if(productInStorage.productId === productId) {
-        productsInStorage.splice(index, 1);
-      }
-    });
+  //loop through the array to find the index to remove
+  productsInStorage.map(function (productInStorage, index) {
+    if (productInStorage.productId === productId) {
+      productsInStorage.splice(index, 1);
+    }
+  });
 
-    // add the rest of the array
-    localStorage.setItem('products', JSON.stringify(productsInStorage));
-}
-
-// function for clear cart - remove all products from the cart
-function clearCartClicked() {
-  while(shoppingCartContent.firstChild) {
-    shoppingCartContent.removeChild(shoppingCartContent.firstChild);
-  }
-  
-  // when clear cart clicked > remove from local storage as well (1/2)
-  clearLocalStorage();
-  
-}
-
-// when clear cart clicked > remove from local storage as well (2/2)
-function clearLocalStorage() {
-    localStorage.clear();
+  // add the rest of the array
+  localStorage.setItem("products", JSON.stringify(productsInStorage));
 }
 
 // loads products in the shopping cart from the local storage even after refreshing (4/4)
@@ -159,7 +140,7 @@ function loadFromLocalStorage() {
   let productsInStorage = getProductsFromStorage();
 
   // LOOP through the products inside local storage and show in the shopping cart
-  productsInStorage.forEach(function (product) {
+  productsInStorage.map(function (product) {
     // create the <tr> same as addToCart
     const row = document.createElement("tr");
 
@@ -167,19 +148,21 @@ function loadFromLocalStorage() {
     row.innerHTML = `
         <tr>
             <td>
-                <img src="${product.productImage}" width=100>
+                <img src="${product.productImage}" width=60>
             </td>
-                <td>
-                    ${product.productTitle}
-                </td>
-                <td>
-                    ${product.productPrice}
-                </td>
-            <td>
+            <td>${product.productTitle}</td>
+                <td>${product.productPrice}</td>
+                 <td>
+                <input class="cart-quantity-input" type="number" value="1">
                 <button class="remove" data-id="${product.productId}">X</button>
             </td>
         </tr>
         `;
-        shoppingCartContent.appendChild(row);
+    shoppingCartContent.appendChild(row);
+    updateCartTotal();
   });
+}
+
+function updateCartTotal() {
+  ff;
 }

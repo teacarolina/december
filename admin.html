@@ -7,11 +7,19 @@
 	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
     <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="crossorigin="anonymous"/>
     <link rel="stylesheet" href="style.css"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Barcode+39+Text&display=swap" rel="stylesheet">
+
     <script src="admin.js" defer></script>
     <title>Admin</title>
 </head>
-<body onload="view();"> <!--Testa ta bort den här sen?? Emilia/Tea-->
+<!--Call function view() on load-->
+<body onload="view();">
     <header>
+      <div class="site-title">
+        <h3 class="site-title">SNEAKERS INSTITUTET</h3>
+          
+              </div>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
                    <a class="navbar-brand" href="#"></a>
                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -36,11 +44,11 @@
         <label for="price">Price</label></br>
         <input type="number" id="product--price" name="price"><br><br>
       </form>
-      <button onclick="save();" data-id="button">Submit</button>
+      <button onclick="save();" class="product--add" data-id="button">Submit</button>
     </div>
+    <!--Vi hade tidigare skrivit endast id inte data-id???-->
 
-    <footer class="footer-section">
-    
+    <footer class="footer-section" id="admin--footer">
     </footer>
 </body>
 </html>
