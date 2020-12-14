@@ -55,14 +55,16 @@ function addToCart(product) {
 
   // the template for 'row'
   row.innerHTML = `
-        <tr class="cart-row">
+        <tr>
               <td>
           <img src="${product.productImage}" width=60>
       </td>
             <td>
                 ${product.productTitle}
             </td>
-            <td class="cart-price">${product.productPrice}</td>
+            <td>
+                ${product.productPrice}
+            </td>
             <td>
                 <input class="cart-quantity-input" type="number" value="1">
                 <button class="remove" data-id="${product.productId}">X</button>
@@ -144,12 +146,12 @@ function loadFromLocalStorage() {
 
     // pull the content
     row.innerHTML = `
-        <tr class="cart-row">
+        <tr>
             <td>
                 <img src="${product.productImage}" width=60>
             </td>
-            <td class="cart-title">${product.productTitle}</td>
-                <td class="cart-price">${product.productPrice}</td>
+            <td>${product.productTitle}</td>
+                <td>${product.productPrice}</td>
                  <td>
                 <input class="cart-quantity-input" type="number" value="1">
                 <button class="remove" data-id="${product.productId}">X</button>
@@ -157,17 +159,10 @@ function loadFromLocalStorage() {
         </tr>
         `;
     shoppingCartContent.appendChild(row);
-    // updateCartTotal();
+    updateCartTotal();
   });
 }
 
-// function updateCartTotal() {
-//   let cartItemContainer = document.querySelector("tbody")[0];
-//   let cartRows = cartItemContainer.querySelector(".cart-title");
-//   for (let i = 0; i < cartRows.length; i++) {
-//     let cartRow = cartRows[0];
-//     let price = cartRow.querySelector(".cart-price")[0];
-//     let quantity = priceRow.querySelector("cart-quantity-input")[0];
-//     console.log(price, quantity);
-//   }
-// }
+function updateCartTotal() {
+  ff;
+}

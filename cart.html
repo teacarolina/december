@@ -13,45 +13,75 @@
       <!-- navbar -->
 
     <!-- header -->
-    <header class="header-cart">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-			<a class="navbar-brand" href="#"></a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-			  <span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-			  <div class="navbar-nav">
-				<a class="nav-link active" href="index.html">Home<span class="sr-only">(current)</span></a>
-				<a class="nav-link" href="#contact">Contact</a>
-                <a class="shopping-cart" href="cart.html"> 
-                    <i class="fas fa-shopping-basket"></i>
-                </a>
-			  </div>
-			</div>
-          </nav>		
-    </header>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+           <a class="navbar-brand" href="#"></a>
+           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+             <span class="navbar-toggler-icon"></span>
+           </button>
+           <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+             <div class="navbar-nav">
+             <a class="nav-link active" href="index.html">Startsidan<span class="sr-only">(current)</span></a>
+                     <a class="nav-link" href="#contact">Contact</a>
+                     <a class="nav-link" href="admin.html">Admin</a>
+                     
+             </div>
+                 </div>
+                 <div class="div-cart">
+                     <a class="shopping-cart" href="cart.html"> 
+                         <i class="fas fa-shopping-basket"></i>
+                         <span class="cart-icon-quant">0</span>
+                     </a>
+                     </div>
+               </nav>
+         </header>
+  <section class="product-container-test">
+    <div class="landingpage-section-cart">
+        <div class="card">
+          <img class="product-image" src="https://images.unsplash.com/photo-1543508282-5c1f427f023f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=658&q=80" alt="Denim Jeans" style="width:100%">
+          <h1 class="product-title">Nike Shoes 1</h1>
+          <p class="price">199 SEK</p>
+          <p>Brand new of course</p>
+          <p><button class="btn-add-to-cart">Add to Cart</button></p>
+        </div>
+      </div>
 
-    <!-- landing page -->
-    <section class="landingpage-section">
-      <h2 class="cart-title">Varukorg</h2>
-      <div class="cart-row">
-        <span class="cart-item">Item</span>
-        <span class="cart-price">pris</span>
-        <span class="cart-quantity">kvantite</span>
+      <div class="landingpage-section-cart">
+        <div class="card">
+          <img class="product-image" src="https://images.unsplash.com/photo-1505874462322-dfcf87f819a9?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Denim Jeans" style="width:100%">
+          <h1 class="product-title">Adidas Shoes</h1>
+          <p class="price">299 SEK</p>
+          <p>Not really</p>
+          <p><button class="btn-add-to-cart">Add to Cart</button></p>
+        </div>
       </div>
-      <div class="purchase-total">
-        <span class="purchase-total-title">Totalt
-        </span>
-        <span class="purchase-total-price">0</span>
-      </div>
-      <button class="purchase-button">KÖP</button>
+    </section>
+    
+    <section class="container">
+        <h2 class="section-h2">CART</h2>
+        <div class="cart-row">
+            <span class="cart-product cart-item">ITEM</span>
+            <span class="cart-price cart-item">PRICE</span>
+            <span class="cart-quantity cart-item">QUANTITY</span>
+        </div>
+
+        <div class="cart-items">
+          <!-- removed cart test-products -->
+          <!-- dont remove -->
+        </div>
+        <div class="cart-total">
+            <strong class="cart-total-title">Total:</strong>
+            <span class="cart-total-price">0 SEK</span>
+        </div>
+        <div class="checkout-container">
+        <button class="btn-checkout" type="button">CHECKOUT</button>
+    </div>
     </section>
 
     <!-- footer -->
     <footer class="footer-section">
 
     </footer>
-
 
   </body>
 </html>

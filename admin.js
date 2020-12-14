@@ -7,11 +7,10 @@ function save(){
     //to give each card a specific id (random number 0-1)
     var id = Math.random();
 
-    //storing an array in local storage
-    if(localStorage.getItem("data") == null){
-        localStorage.setItem("data", "[]");
-    }
-
+  //storing an array in local storage
+  if (localStorage.getItem("data") == null) {
+    localStorage.setItem("data", "[]");
+  }
     //old data input pushed into array so no data is lost
     var old_data = JSON.parse(localStorage.getItem("data"));
     old_data.push({name, description, price, id});
@@ -24,7 +23,7 @@ function save(){
 
 //function to reset input fields after pressing button submit
 function formReset() {
-    document.querySelector(".input--form").reset();
+  document.querySelector(".input--form").reset();
 }
 
 //function to remove object from localstorage
@@ -36,8 +35,8 @@ function removeElement(id) {
         //storing again in local storage without deleted id 
         localStorage.setItem("data",JSON.stringify (newData)); 
 
-        location.reload();
-  }
+  location.reload();
+}
 
 //function to edit object in local storage
 function editElement(id) {
@@ -58,7 +57,7 @@ function editElement(id) {
            editData = localStorage.setItem("data", JSON.stringify(editData))
         }
     }
-    location.reload();
+  location.reload();
 }
 
 //function that creates the cards
@@ -105,6 +104,7 @@ function view() {
       </div>
      
     </section>
-        `});   
-    }
+        `;
+    });
+  }
 }
