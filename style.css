@@ -118,7 +118,7 @@ body {
 .card button:hover {
   opacity: 0.7; }
 
-.bildtest {
+.product-image {
   max-width: 100%;
   max-height: 100%; }
 
@@ -234,5 +234,6 @@ td {
 .cart-quantity-input {
   width: 50%; }
 
-.total {
+.total,
+.cart-total {
   text-align: end; }
