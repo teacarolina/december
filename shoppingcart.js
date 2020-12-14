@@ -39,7 +39,7 @@ function addProduct(e) {
 function getProductInfo(product) {
   ///// comment
   const productInfo = {
-    // productImage: product.querySelector(".product-image").src,
+    productImage: product.querySelector(".product-image").src,
     productTitle: product.querySelector(".product-title").textContent,
     productPrice: product.querySelector(".product-price").textContent,
     productId: product.querySelector(".product-id").getAttribute("data-id"),
@@ -55,13 +55,14 @@ function addToCart(product) {
 
   // the template for 'row'
   row.innerHTML = `
-        <tr>
+        <tr class="cart-row">
+              <td>
+          <img src="${product.productImage}" width=60>
+      </td>
             <td>
                 ${product.productTitle}
             </td>
-            <td>
-                ${product.productPrice}
-            </td>
+            <td class="cart-price">${product.productPrice}</td>
             <td>
                 <input class="cart-quantity-input" type="number" value="1">
                 <button class="remove" data-id="${product.productId}">X</button>
@@ -69,12 +70,6 @@ function addToCart(product) {
 
         </tr>
     `;
-  ///////////////////////////////////////////////////////////////
-  // add this when img is added to admin-add
-  //     <td>
-  //         <img src="${product.productImage}" width=100>
-  //     </td>
-  ///////////////////////////////////////////////////////////////
 
   // add to the shopping cart
   shoppingCartContent.appendChild(row);
@@ -112,8 +107,7 @@ function removeProduct(e) {
   let product, productId;
 
   // remove from the dom
-  if (e.target.classList.contains("remove"));
-  {
+  if (e.target.classList.contains("remove")) {
     e.target.parentElement.parentElement.remove();
     product = e.target.parentElement.parentElement;
     productId = product.querySelector(".remove").getAttribute("data-id");
@@ -144,32 +138,36 @@ function loadFromLocalStorage() {
   let productsInStorage = getProductsFromStorage();
 
   // LOOP through the products inside local storage and show in the shopping cart
-  productsInStorage.forEach(function (product) {
+  productsInStorage.map(function (product) {
     // create the <tr> same as addToCart
     const row = document.createElement("tr");
 
     // pull the content
     row.innerHTML = `
-        <tr>
-                <td>
-                    ${product.productTitle}
-                </td>
-                <td>
-                    ${product.productPrice}
-                </td>
+        <tr class="cart-row">
             <td>
+                <img src="${product.productImage}" width=60>
+            </td>
+            <td class="cart-title">${product.productTitle}</td>
+                <td class="cart-price">${product.productPrice}</td>
+                 <td>
                 <input class="cart-quantity-input" type="number" value="1">
                 <button class="remove" data-id="${product.productId}">X</button>
             </td>
         </tr>
         `;
     shoppingCartContent.appendChild(row);
+    // updateCartTotal();
   });
 }
 
-///////////////////////////////////////////////////////////////
-// add this when img is added to admin-add
-//     <td>
-//         <img src="${product.productImage}" width=100>
-//     </td>
-///////////////////////////////////////////////////////////////
+// function updateCartTotal() {
+//   let cartItemContainer = document.querySelector("tbody")[0];
+//   let cartRows = cartItemContainer.querySelector(".cart-title");
+//   for (let i = 0; i < cartRows.length; i++) {
+//     let cartRow = cartRows[0];
+//     let price = cartRow.querySelector(".cart-price")[0];
+//     let quantity = priceRow.querySelector("cart-quantity-input")[0];
+//     console.log(price, quantity);
+//   }
+// }
