@@ -48,14 +48,36 @@ function getProductInfo(product) {
   addToCart(productInfo);
 }
 
+// check to see if the product is already added > if not alert (1/2)
+function addCartCheck(product) {
+  let check = false;
+  try {
+    const datas = JSON.parse(localStorage.getItem("products"));
+    if (datas.length == 0) return false;
+    datas.filter((item, i) => {
+      console.log("item", item.productTitle === product.productTitle);
+      if (item.productTitle === product.productTitle) check = true;
+    });
+  } catch (error) {
+    return false;
+  }
+  return check;
+}
+
 // creating a template for products in cart
 function addToCart(product) {
   // create a <tr> from template
   const row = document.createElement("tr");
 
+  // check to see if the product is already added > if not alert (2/2)
+  if (addCartCheck(product)) {
+    alert(`${product.productTitle} already added to cart.`);
+    return false;
+  }
+
   // the template for 'row'
   row.innerHTML = `
-        <tr class="cart-row">
+        <tr>
               <td>
           <img src="${product.productImage}" width=60>
       </td>
@@ -144,7 +166,7 @@ function loadFromLocalStorage() {
 
     // pull the content
     row.innerHTML = `
-        <tr class="cart-row">
+        <tr>
             <td>
                 <img src="${product.productImage}" width=60>
             </td>
@@ -157,17 +179,5 @@ function loadFromLocalStorage() {
         </tr>
         `;
     shoppingCartContent.appendChild(row);
-    // updateCartTotal();
   });
 }
-
-// function updateCartTotal() {
-//   let cartItemContainer = document.querySelector("tbody")[0];
-//   let cartRows = cartItemContainer.querySelector(".cart-title");
-//   for (let i = 0; i < cartRows.length; i++) {
-//     let cartRow = cartRows[0];
-//     let price = cartRow.querySelector(".cart-price")[0];
-//     let quantity = priceRow.querySelector("cart-quantity-input")[0];
-//     console.log(price, quantity);
-//   }
-// }
