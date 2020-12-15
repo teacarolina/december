@@ -6,7 +6,10 @@ function save(){
     var price = document.querySelector("#product--price").value;
     //to give each card a specific id (random number 0-1)
     var id = Math.random();
+    //Math.floor(Math.random() * 100) + 1;
 
+    console.log(id)
+  
   //storing an array in local storage
   if (localStorage.getItem("data") == null) {
     localStorage.setItem("data", "[]");
@@ -38,6 +41,8 @@ function removeElement(id) {
   location.reload();
 }
 
+//Emilia+Tea: om vi använder prompt kan vi acceptera endast siffror? ev. styla om till ngt annat än prompt
+//fungerande error, fråga rakib om det här!
 //function to edit object in local storage
 function editElement(id) {
     //prompt alert to add new values 
@@ -48,16 +53,18 @@ function editElement(id) {
     var editData = JSON.parse(localStorage.getItem("data"))
     //for loop checking id for specific object, choosing that object and replacing
     //with new input from prompt alert
+    //kolla på for in loop 
     for (var i in editData) {
-        if (editData[i].id == id) {
+        if (editData[i].id == id) { 
            editData[i].name = newName 
            editData[i].description = newDescription
            editData[i].price = newPrice
-           //saving new data to localstorage
-           editData = localStorage.setItem("data", JSON.stringify(editData))
         }
     }
-  location.reload();
+    //saving new data to localstorage, is outside the loop so we don't
+    //define what edit data is every time the loop runs 
+    localStorage.setItem("data", JSON.stringify(editData))
+    location.reload();
 }
 
 //function that creates the cards
@@ -75,7 +82,7 @@ function view() {
         homePage.innerHTML += `
         <section class="landingpage-section">
         <div class="card">  
-        <img class="bildtest" src="https://images.unsplash.com/photo-1521774971864-62e842046145?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=750&q=80">
+        <img class="product-image" src="https://images.unsplash.com/photo-1521774971864-62e842046145?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=750&q=80">
         <h1>${item.name}</h1>
         <p class="price">${item.price}</p>
         <p>${item.description}</p>
@@ -96,7 +103,7 @@ function view() {
         homePage.innerHTML += `
         <section class="landingpage-section">
         <div class="card">  
-        <img class="bildtest" src="https://images.unsplash.com/photo-1521774971864-62e842046145?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=750&q=80">
+        <img class="product-image" src="https://images.unsplash.com/photo-1521774971864-62e842046145?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=750&q=80">
         <h1 class="product-title">${item.name}</h1>
         <p class="product-price">${item.price}</p>
         <p>${item.description}</p>
