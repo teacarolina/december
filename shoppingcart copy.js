@@ -48,10 +48,32 @@ function getProductInfo(product) {
   addToCart(productInfo);
 }
 
+// check to see if the product is already added > if not alert (1/2)
+function addCartCheck(product) {
+  let check = false;
+  try {
+    const datas = JSON.parse(localStorage.getItem("products"));
+    if (datas.length == 0) return false;
+    datas.filter((item, i) => {
+      console.log("item", item.productTitle === product.productTitle);
+      if (item.productTitle === product.productTitle) check = true;
+    });
+  } catch (error) {
+    return false;
+  }
+  return check;
+}
+
 // creating a template for products in cart
 function addToCart(product) {
   // create a <tr> from template
   const row = document.createElement("tr");
+
+  // check to see if the product is already added > if not alert (2/2)
+  if (addCartCheck(product)) {
+    alert(`${product.productTitle} already added to cart.`);
+    return false;
+  }
 
   // the template for 'row'
   row.innerHTML = `
@@ -62,9 +84,7 @@ function addToCart(product) {
             <td>
                 ${product.productTitle}
             </td>
-            <td>
-                ${product.productPrice}
-            </td>
+            <td class="cart-price">${product.productPrice}</td>
             <td>
                 <input class="cart-quantity-input" type="number" value="1">
                 <button class="remove" data-id="${product.productId}">X</button>
@@ -150,8 +170,8 @@ function loadFromLocalStorage() {
             <td>
                 <img src="${product.productImage}" width=60>
             </td>
-            <td>${product.productTitle}</td>
-                <td>${product.productPrice}</td>
+            <td class="cart-title">${product.productTitle}</td>
+                <td class="cart-price">${product.productPrice}</td>
                  <td>
                 <input class="cart-quantity-input" type="number" value="1">
                 <button class="remove" data-id="${product.productId}">X</button>
@@ -159,10 +179,5 @@ function loadFromLocalStorage() {
         </tr>
         `;
     shoppingCartContent.appendChild(row);
-    updateCartTotal();
   });
-}
-
-function updateCartTotal() {
-  ff;
 }

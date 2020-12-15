@@ -1,24 +1,24 @@
-//function to save admin input in local storage 
-function save(){
-    //new data input from admin 
-    var name = document.querySelector("#product--name").value;
-    var description = document.querySelector("#product--description").value;
-    var price = document.querySelector("#product--price").value;
-    //to give each card a specific id (random number 0-1)
-    var id = Math.random();
+//function to save admin input in local storage
+function save() {
+  //new data input from admin
+  var name = document.querySelector("#product--name").value;
+  var description = document.querySelector("#product--description").value;
+  var price = document.querySelector("#product--price").value;
+  //to give each card a specific id (random number 0-1)
+  var id = Math.random();
 
   //storing an array in local storage
   if (localStorage.getItem("data") == null) {
     localStorage.setItem("data", "[]");
   }
-    //old data input pushed into array so no data is lost
-    var old_data = JSON.parse(localStorage.getItem("data"));
-    old_data.push({name, description, price, id});
+  //old data input pushed into array so no data is lost
+  var old_data = JSON.parse(localStorage.getItem("data"));
+  old_data.push({ name, description, price, id });
 
-    //storing the array with the new and old data
-    localStorage.setItem("data", JSON.stringify(old_data)); 
-    
-    formReset()
+  //storing the array with the new and old data
+  localStorage.setItem("data", JSON.stringify(old_data));
+
+  formReset();
 }
 
 //function to reset input fields after pressing button submit
@@ -27,13 +27,13 @@ function formReset() {
 }
 
 //function to remove object from localstorage
-function removeElement(id) {  
-        //get localstorage objects, filter with id and deleting specific id
-        var dataCopy = JSON.parse(localStorage.getItem("data"))
-        //filter specific id and if its not this id we should keep information
-        var newData = dataCopy.filter(item => item.id !== id)
-        //storing again in local storage without deleted id 
-        localStorage.setItem("data",JSON.stringify (newData)); 
+function removeElement(id) {
+  //get localstorage objects, filter with id and deleting specific id
+  var dataCopy = JSON.parse(localStorage.getItem("data"));
+  //filter specific id and if its not this id we should keep information
+  var newData = dataCopy.filter((item) => item.id !== id);
+  //storing again in local storage without deleted id
+  localStorage.setItem("data", JSON.stringify(newData));
 
   view();
 }
@@ -94,7 +94,7 @@ function view() {
         homePage.innerHTML += `
         <section class="landingpage-section">
         <div class="card">  
-        <img class="bildtest" src="https://images.unsplash.com/photo-1521774971864-62e842046145?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=750&q=80">
+        <img class="product-image" src="https://images.unsplash.com/photo-1521774971864-62e842046145?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=750&q=80">
         <h1>${item.name}</h1>
         <p class="price">${item.price}</p>
         <p>${item.description}</p>
@@ -114,7 +114,7 @@ function view() {
         homePage.innerHTML += `
         <section class="landingpage-section">
         <div class="card">  
-        <img class="bildtest" src="https://images.unsplash.com/photo-1521774971864-62e842046145?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=750&q=80">
+        <img class="product-image" src="https://images.unsplash.com/photo-1521774971864-62e842046145?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=750&q=80">
         <h1 class="product-title">${item.name}</h1>
         <p class="product-price">${item.price}</p>
         <p>${item.description}</p>
