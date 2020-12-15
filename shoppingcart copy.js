@@ -181,18 +181,3 @@ function loadFromLocalStorage() {
     shoppingCartContent.appendChild(row);
   });
 }
-
-btnCheckOut = document.querySelectorAll(".btn-clear-cart")[0];
-btnCheckOut.addEventListener("click", checkoutClicked);
-
-function checkoutClicked() {
-  const quant = document.querySelector(".cart-quantity-input").value;
-  const price = document.querySelector(".cart-price").innerHTML;
-  const total = quant * price;
-  alert(`Checkout completed. Total price: ${total} SEK`);
-
-  // remove items on purchase
-  //while (cartItems.hasChildNodes()) {
-  //  cartItems.removeChild(cartItems.firstChild)
-  //}
-}
