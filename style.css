@@ -19,13 +19,13 @@ body {
   height: 100%; }
 
 .site-title {
-  background-color: #A4C1C5;
+  background-color: #a4c1c5;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 3rem;
   margin-bottom: -3px;
-  font-family: 'Libre Barcode 39 Text', cursive;
+  font-family: "Libre Barcode 39 Text", cursive;
   font-size: 2rem; }
 
 .header-picture-text {
@@ -116,55 +116,6 @@ body {
   max-width: 100%;
   max-height: 100%; }
 
-.footer-section {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #A4C1C5;
-  height: 60%;
-  max-width: 100%; }
-
-.footer--div {
-  width: 20%;
-  text-align: center; }
-
-.footer--icons {
-  font-size: 30px;
-  margin-right: 1%; }
-
-#login {
-  transition-duration: 0.4s;
-  background-color: black;
-  color: #A4C1C5;
-  border-radius: 6px; }
-
-.p--socialmedia {
-  margin-top: 15%; }
-
-/*fixa i mediaqueries så den är fixed/tea*/
-#admin--footer {
-  height: 40px; }
-
-.link--socialmedia {
-  color: black; }
-
-.link--socialmedia:visited {
-  color: black; }
-
-.link--socialmedia:hover {
-  color: white; }
-
-@media only screen and (max-width: 767px) {
-  .footer--div {
-    width: 100%; }
-  .footer-section {
-    height: 82%; }
-  .p--socialmedia {
-    margin-top: 10%; }
-  #login {
-    margin-bottom: 4%; } }
-
 /*for admin page with inputfield*/
 .input--div {
   display: flex;
@@ -250,5 +201,70 @@ td {
 .total,
 .cart-total {
   text-align: end; }
+
+.contact-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column; }
+
+.contact-item {
+  text-align: center; }
+
+.contact-text {
+  color: white; }
+
+.contact-header {
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
+.footer-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #A4C1C5;
+  height: 60%;
+  max-width: 100%; }
+
+.footer--div {
+  width: 20%;
+  text-align: center; }
+
+.footer--icons {
+  font-size: 30px;
+  margin-right: 1%; }
+
+#login {
+  transition-duration: 0.4s;
+  background-color: black;
+  color: #A4C1C5;
+  border-radius: 6px; }
+
+.p--socialmedia {
+  margin-top: 15%; }
+
+/*fixa i mediaqueries så den är fixed/tea*/
+#admin--footer {
+  height: 40px; }
+
+.link--socialmedia {
+  color: black; }
+
+.link--socialmedia:visited {
+  color: black; }
+
+.link--socialmedia:hover {
+  color: white; }
+
+@media only screen and (max-width: 767px) {
+  .footer--div {
+    width: 100%; }
+  .footer-section {
+    height: 82%; }
+  .p--socialmedia {
+    margin-top: 10%; }
+  #login {
+    margin-bottom: 4%; } }
 
 /*media queries, 280 är fuuuul vi måste fixa*/
