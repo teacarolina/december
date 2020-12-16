@@ -7,6 +7,8 @@ function save() {
   //to give each card a specific id (random number 0-1)
   var id = Math.random();
 
+    console.log(id)
+  
   //storing an array in local storage
   if (localStorage.getItem("data") == null) {
     localStorage.setItem("data", "[]");
@@ -38,6 +40,8 @@ function removeElement(id) {
   view();
 }
 
+//Emilia+Tea: om vi använder prompt kan vi acceptera endast siffror? ev. styla om till ngt annat än prompt
+//fungerande error, fråga rakib om det här!
 //function to edit object in local storage
 function editElement(id) {
     //prompt alert to add new values 
@@ -58,6 +62,8 @@ function editElement(id) {
            
         }
     }
+    //saving new data to localstorage, is outside the loop so we don't
+    //define what edit data is every time the loop runs
     localStorage.setItem("data", JSON.stringify(editData))
   view();
 }
