@@ -146,6 +146,25 @@ body {
 #admin--footer {
   height: 40px; }
 
+.link--socialmedia {
+  color: black; }
+
+.link--socialmedia:visited {
+  color: black; }
+
+.link--socialmedia:hover {
+  color: white; }
+
+@media only screen and (max-width: 767px) {
+  .footer--div {
+    width: 100%; }
+  .footer-section {
+    height: 82%; }
+  .p--socialmedia {
+    margin-top: 10%; }
+  #login {
+    margin-bottom: 4%; } }
+
 /*for admin page with inputfield*/
 .input--div {
   display: flex;
@@ -231,3 +250,5 @@ td {
 .total,
 .cart-total {
   text-align: end; }
+
+/*media queries, 280 är fuuuul vi måste fixa*/
