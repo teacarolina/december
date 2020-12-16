@@ -11,12 +11,15 @@ const products = document.querySelector(".landingpage-section"),
 
 loadEventListeners();
 
+updateView();
+
 function loadEventListeners() {
   // when a new 'products' is added
-  products.addEventListener("click", addProduct);
+  if (products) products.addEventListener("click", addProduct);
 
   // when the 'X' button is clicked from the shopping cart
-  shoppingCartContent.addEventListener("click", removeProduct);
+  //if (shoppingCartContent)
+  //  shoppingCartContent.addEventListener("click", removeProduct);
 
   // load from local storage
   document.addEventListener("DOMContentLoaded", loadFromLocalStorage);
@@ -42,6 +45,7 @@ function getProductInfo(product) {
     productImage: product.querySelector(".product-image").src,
     productTitle: product.querySelector(".product-title").textContent,
     productPrice: product.querySelector(".product-price").textContent,
+    quantity: 1,
     productId: product.querySelector(".product-id").getAttribute("data-id"),
   };
   // function to push 'productInfo' into the cart
@@ -86,8 +90,8 @@ function addToCart(product) {
             </td>
             <td class="cart-price">${product.productPrice}</td>
             <td>
-                <input class="cart-quantity-input" type="number" value="1">
-                <button class="remove" data-id="${product.productId}">X</button>
+            <input class="cart-quantity-input" type="number" onkeyup="onQuantityChanged(this)" onchange="onQuantityChanged(this)" value="${product.quantity}">
+                <button class="remove" onclick="removeProduct(this)" data-id="${product.productId}">X</button>
             </td>
 
         </tr>
@@ -96,8 +100,47 @@ function addToCart(product) {
   // add to the shopping cart
   shoppingCartContent.appendChild(row);
 
+  //updateCartTotal(product.productPrice, 1);
+
   // add - localstorage for products added (1/4)
   saveToLocalStorage(product);
+}
+
+function onQuantityChanged(e) {
+  var quant = parseInt(e.value);
+
+  var productId = e.parentElement
+    .querySelector(".remove")
+    .getAttribute("data-id");
+  if (quant) {
+    editProductLocalStorage(productId, quant);
+  } else {
+    editProductLocalStorage(productId, 0);
+  }
+}
+
+function updateView() {
+  var productsInCart = getProductsFromStorage();
+  var total = 0;
+  var quantity = 0;
+
+  const cart = document.querySelector(".cart-total"),
+    quantSpan = document.querySelector(".cart-icon-quant");
+
+  productsInCart.map(function (productInStorage, index) {
+    var price = parseInt(productInStorage.productPrice);
+    var itemQuantity = parseInt(productInStorage.quantity);
+    total = total + price * itemQuantity;
+  });
+
+  var quant = parseInt(productsInCart.length);
+
+  if (cart) {
+    cart.innerHTML = `${total}`;
+  }
+  if (quantSpan) {
+    quantSpan.innerHTML = `${quantity}`;
+  }
 }
 
 // save - localstorage for products added (2/4)
@@ -109,6 +152,7 @@ function saveToLocalStorage(product) {
 
   // convert JSON into string since localStorage only saves strings
   localStorage.setItem("products", JSON.stringify(products));
+  updateView();
 }
 
 // get - localstorage for products added (3/4)
@@ -126,13 +170,13 @@ function getProductsFromStorage() {
 
 // // remove product from the cart
 function removeProduct(e) {
-  let product, productId;
+  let removeButton, productId;
+  removeButton = e;
+  productId = e.parentElement.querySelector(".remove").getAttribute("data-id");
 
   // remove from the dom
-  if (e.target.classList.contains("remove")) {
-    e.target.parentElement.parentElement.remove();
-    product = e.target.parentElement.parentElement;
-    productId = product.querySelector(".remove").getAttribute("data-id");
+  if (removeButton) {
+    removeButton.parentElement.parentElement.remove();
   }
 
   // remove from the local storage
@@ -153,6 +197,29 @@ function removeProductLocalStorage(productId) {
 
   // add the rest of the array
   localStorage.setItem("products", JSON.stringify(productsInStorage));
+  updateView();
+}
+
+// function for editProductLocalStorage > edit from the local storage
+function editProductLocalStorage(productId, quantity) {
+  //get the local storage data
+  let productsInStorage = getProductsFromStorage();
+  let quantityNew = quantity;
+  let productToEdit;
+
+  //loop through the array to find the index to remove
+  productsInStorage.map(function (productInStorage, index) {
+    if (productInStorage.productId === productId) {
+      productToEdit = productInStorage;
+      productToEdit.quantity = quantityNew;
+      productsInStorage.splice(index, 1);
+    }
+  });
+
+  productsInStorage.push(productToEdit);
+  // add the rest of the array
+  localStorage.setItem("products", JSON.stringify(productsInStorage));
+  updateView();
 }
 
 // loads products in the shopping cart from the local storage even after refreshing (4/4)
@@ -173,8 +240,8 @@ function loadFromLocalStorage() {
             <td class="cart-title">${product.productTitle}</td>
                 <td class="cart-price">${product.productPrice}</td>
                  <td>
-                <input class="cart-quantity-input" type="number" value="1">
-                <button class="remove" data-id="${product.productId}">X</button>
+                <input class="cart-quantity-input" type="number" onkeyup="onQuantityChanged(this)" onchange="onQuantityChanged(this)" value="${product.quantity}">
+                <button class="remove" onclick="removeProduct(this)" data-id="${product.productId}">X</button>
             </td>
         </tr>
         `;
@@ -186,9 +253,7 @@ btnCheckOut = document.querySelectorAll(".btn-clear-cart")[0];
 btnCheckOut.addEventListener("click", checkoutClicked);
 
 function checkoutClicked() {
-  const quant = document.querySelector(".cart-quantity-input").value;
-  const price = document.querySelector(".cart-price").innerHTML;
-  const total = quant * price;
+  const total = document.querySelector(".cart-total").innerHTML;
   alert(`Checkout completed. Total price: ${total} SEK`);
 
   // remove items on purchase
