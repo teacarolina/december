@@ -1,0 +1,23 @@
+{
+  "name": "december",
+  "version": "1.0.0",
+  "description": "",
+  "main": "admin.js",
+  "scripts": {
+    "start": "node-sass sass/main.scss style.css -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/santarinareyes/gruppInlamningDec.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/santarinareyes/gruppInlamningDec/issues"
+  },
+  "homepage": "https://github.com/santarinareyes/gruppInlamningDec#readme",
+  "dependencies": {
+    "node-sass": "^5.0.0"
+  }
+}
