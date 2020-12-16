@@ -141,7 +141,7 @@ function removeProduct(e) {
 
 // function for removeProductLocalStorage > remove from the local storage
 function removeProductLocalStorage(productId) {
-  //get the local storage data
+  //get the local storage data 
   let productsInStorage = getProductsFromStorage();
 
   //loop through the array to find the index to remove
