@@ -1,5 +1,5 @@
 async function saveUrls() {
-  const response = await fetch("https://api.unsplash.com/photos/random/?client_id=hoi7Zos7S4lDzSm4l4MQ3P4apEmBUDWctKoocFTwnwY")
+  const response = await fetch("https://api.unsplash.com/photos/random?query=sneakers&orientation=landscape&client_id=hoi7Zos7S4lDzSm4l4MQ3P4apEmBUDWctKoocFTwnwY")
   const dataUrls = await response.json()
   var pictureUrls = dataUrls.urls.small
   //console.log(picture)
