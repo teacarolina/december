@@ -19,13 +19,13 @@ body {
   height: 100%; }
 
 .site-title {
-  background-color: #A4C1C5;
+  background-color: #a4c1c5;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 3rem;
   margin-bottom: -3px;
-  font-family: 'Libre Barcode 39 Text', cursive;
+  font-family: "Libre Barcode 39 Text", cursive;
   font-size: 2rem; }
 
 .header-picture-text {
@@ -205,11 +205,18 @@ td {
 .contact-container {
   display: flex;
   justify-content: center;
-  flex-direction: column;
-  border: 2px solid rebeccapurple; }
+  flex-direction: column; }
 
 .contact-item {
   text-align: center; }
+
+.contact-text {
+  color: white; }
+
+.contact-header {
+  display: flex;
+  align-items: center;
+  justify-content: center; }
 
 .footer-section {
   display: flex;
