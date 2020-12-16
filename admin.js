@@ -7,6 +7,8 @@ function save() {
   //to give each card a specific id (random number 0-1)
   var id = Math.random();
 
+    console.log(id)
+  
   //storing an array in local storage
   if (localStorage.getItem("data") == null) {
     localStorage.setItem("data", "[]");
@@ -35,44 +37,67 @@ function removeElement(id) {
   //storing again in local storage without deleted id
   localStorage.setItem("data", JSON.stringify(newData));
 
-  location.reload();
+  view();
 }
 
+//Emilia+Tea: om vi använder prompt kan vi acceptera endast siffror? ev. styla om till ngt annat än prompt
+//fungerande error, fråga rakib om det här!
 //function to edit object in local storage
 function editElement(id) {
-  //prompt alert to add new values
-  var newName = prompt("Please enter new name");
-  var newDescription = prompt("Please enter new description");
-  var newPrice = prompt("Please enter new price");
-  //get localstorage where previous input is saved
-  var editData = JSON.parse(localStorage.getItem("data"));
-  //for loop checking id for specific object, choosing that object and replacing
-  //with new input from prompt alert
-  for (var i in editData) {
-    if (editData[i].id == id) {
-      editData[i].name = newName;
-      editData[i].description = newDescription;
-      editData[i].price = newPrice;
-      //saving new data to localstorage
-      editData = localStorage.setItem("data", JSON.stringify(editData));
+    //prompt alert to add new values 
+    var newName = prompt("Please enter new name")
+    var newDescription = prompt("Please enter new description")
+    var newPrice = prompt("Please enter new price")
+    //get localstorage where previous input is saved
+    var editData = JSON.parse(localStorage.getItem("data"))
+    //for loop checking id for specific object, choosing that object and replacing
+    //with new input from prompt alert
+
+    for (var i in editData) {
+        if (editData[i].id === id) {
+           editData[i].name = newName 
+           editData[i].description = newDescription
+           editData[i].price = newPrice
+           //saving new data to localstorage
+           
+        }
     }
-  }
-  location.reload();
+    //saving new data to localstorage, is outside the loop so we don't
+    //define what edit data is every time the loop runs
+    localStorage.setItem("data", JSON.stringify(editData))
+  view();
 }
+//editData = localStorage.setItem("data", JSON.stringify(editData))
 
 //function that creates the cards
-function view() {
-  //choosing where the input should appear
-  var adminPage = document.querySelector(".admin-index");
-  var homePage = document.querySelector(".landingpage-section");
-  //if we have an item in local storage named data and it´s not empty and a section called homePage/adminPage
-  //exists it should be added to this section
-  if (localStorage.getItem("data") != null && homePage && adminPage) {
-    var test = JSON.parse(localStorage.getItem("data"));
-    //collecting the values stored in objects in array
-    Object.values(test).map((item) => {
-      //choosing how they should appear on page
-      homePage.innerHTML += `
+function view() { 
+    //choosing where the input should appear
+    var adminPage = document.querySelector(".admin-index")
+    var homePage = document.querySelector(".landingpage-section")
+    //Kollar om vi misslyckats att hämta homePage, finns ej slutar vi
+    if(homePage === null){
+        console.log('hittar ej homepage')
+        return;
+    }
+    //tar bort tidigare produkter så de inte läggs in om och om igen
+    homePage.innerHTML = '';
+    var dataProductInfo = localStorage.getItem("data");
+
+    //Kolla om dataproduct är null, då hoppar vi ur funktionen eftersom något är fel
+    if( dataProductInfo == null) {
+        console.log('hello');
+        return;
+    }
+    var test = JSON.parse(localStorage.getItem("data")) 
+
+    //if we have an item in local storage named data and it´s not empty and a section called homePage/adminPage 
+    //exists it should be added to this section
+    if(adminPage){
+       
+        //collecting the values stored in objects in array 
+        Object.values(test).map(item => { 
+        //choosing how they should appear on page
+        homePage.innerHTML += `
         <section class="landingpage-section">
         <div class="card">  
         <img class="product-image" src="https://images.unsplash.com/photo-1521774971864-62e842046145?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=750&q=80">
@@ -85,16 +110,14 @@ function view() {
       </div>
      
     </section>
-        `;
-    });
-  }
-  //if first statement is false this will run if its true
-  else if (localStorage.getItem("data") != null && homePage) {
-    var test = JSON.parse(localStorage.getItem("data"));
-    //collecting the values stored in objects in array
-    Object.values(test).map((item) => {
-      //choosing how they should appear on page
-      homePage.innerHTML += `
+        `});   
+    }
+    //if first statement is false this will run if its true
+    else { 
+        //collecting the values stored in objects in array 
+        Object.values(test).map(item => { 
+        //choosing how they should appear on page
+        homePage.innerHTML += `
         <section class="landingpage-section">
         <div class="card">  
         <img class="product-image" src="https://images.unsplash.com/photo-1521774971864-62e842046145?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=750&q=80">
