@@ -1,0 +1,23 @@
+{
+  "name": "gruppsjuinlamning",
+  "version": "1.0.0",
+  "description": "",
+  "main": "admin.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/santarinareyes/gruppInlamningDec.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/santarinareyes/gruppInlamningDec/issues"
+  },
+  "homepage": "https://github.com/santarinareyes/gruppInlamningDec#readme",
+  "dependencies": {
+    "node-sass": "^5.0.0"
+  }
+}
