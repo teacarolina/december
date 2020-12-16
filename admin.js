@@ -1,3 +1,20 @@
+async function saveUrls() {
+  const response = await fetch("https://api.unsplash.com/photos/random/?client_id=hoi7Zos7S4lDzSm4l4MQ3P4apEmBUDWctKoocFTwnwY")
+  const dataUrls = await response.json()
+  var pictureUrls = dataUrls.urls.small
+  //console.log(picture)
+  //storing an array in local storage
+  if (localStorage.getItem("urls") == null) {
+    localStorage.setItem("urls", "[]");
+  }
+  //old data input pushed into array so no data is lost
+  var old_urls = JSON.parse(localStorage.getItem("urls"));
+  old_urls.push({ pictureUrls });
+
+  //storing the array with the new and old data
+  localStorage.setItem("urls", JSON.stringify(old_urls));
+}
+
 //function to save admin input in local storage
 function save() {
   //new data input from admin
@@ -7,7 +24,7 @@ function save() {
   //to give each card a specific id (random number 0-1)
   var id = Math.random();
 
-    console.log(id)
+    //console.log(id)
   
   //storing an array in local storage
   if (localStorage.getItem("data") == null) {
@@ -15,8 +32,8 @@ function save() {
   }
   //old data input pushed into array so no data is lost
   var old_data = JSON.parse(localStorage.getItem("data"));
-  old_data.push({ name, description, price, id });
-
+  old_data.push({ name, description, price, id }); 
+  
   //storing the array with the new and old data
   localStorage.setItem("data", JSON.stringify(old_data));
 
@@ -89,18 +106,21 @@ function view() {
         return;
     }
     var test = JSON.parse(localStorage.getItem("data")) 
-
+    var testUrl = JSON.parse(localStorage.getItem("urls"))
     //if we have an item in local storage named data and it´s not empty and a section called homePage/adminPage 
     //exists it should be added to this section
     if(adminPage){
        
+        //item.pictureUrls[index] om vi map (item, index) måste vara en array pictureUrls 
         //collecting the values stored in objects in array 
-        Object.values(test).map(item => { 
+        //old image url:
+        //https://images.unsplash.com/photo-1521774971864-62e842046145?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=750&q=80"
+        Object.values(test, testUrl).map(item => { 
         //choosing how they should appear on page
         homePage.innerHTML += `
         <section class="landingpage-section">
         <div class="card">  
-        <img class="product-image" src="https://images.unsplash.com/photo-1521774971864-62e842046145?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=750&q=80">
+        <img class="product-image" src="${item.pictureUrls}">
         <h1>${item.name}</h1>
         <p class="price">${item.price}</p>
         <p>${item.description}</p>
@@ -120,7 +140,7 @@ function view() {
         homePage.innerHTML += `
         <section class="landingpage-section">
         <div class="card">  
-        <img class="product-image" src="https://images.unsplash.com/photo-1521774971864-62e842046145?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=750&q=80">
+        <img class="product-image" src="${item.pictureUrls}">
         <h1 class="product-title">${item.name}</h1>
         <p class="product-price">${item.price}</p>
         <p>${item.description}</p>

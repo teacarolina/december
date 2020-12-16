@@ -142,10 +142,6 @@ body {
 .p--socialmedia {
   margin-top: 15%; }
 
-/*fixa i mediaqueries så den är fixed/tea*/
-#admin--footer {
-  height: 40px; }
-
 .link--socialmedia {
   color: black; }
 
@@ -185,6 +181,11 @@ body {
 .product--add {
   border-radius: 15px;
   outline: none; }
+
+.picture--add {
+  border-radius: 15px;
+  outline: none;
+  margin-bottom: 17px; }
 
 .cart-container {
   display: flex;
