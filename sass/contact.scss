@@ -1,10 +1,19 @@
 .contact-container {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    border: 2px solid rebeccapurple;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .contact-item {
-    text-align: center;
+  text-align: center;
+}
+
+.contact-text {
+  color: white;
+}
+
+.contact-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
