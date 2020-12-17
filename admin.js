@@ -119,7 +119,7 @@ function view() {
         Object.values(test).map((item, index) => { //testUrl stod i () tidigare också !!
         //choosing how they should appear on page
         homePage.innerHTML += `
-        <section class="landingpage-section">
+        
         <div class="card">  
         <img class="product-image" src="${item.picture[index].pictureUrls}">
         <h1>${item.name}</h1>
@@ -130,7 +130,7 @@ function view() {
         <button onclick="editElement(${item.id})" class="admin-edit" type="button">EDIT</button>
       </div>
      
-    </section>
+    
         `});   
     }
     //if first statement is false this will run if its true
@@ -139,7 +139,7 @@ function view() {
         Object.values(test).map((item, index) => { 
         //choosing how they should appear on page
         homePage.innerHTML += `
-        <section class="landingpage-section">
+      
         <div class="card">  
         <img class="product-image" src="${item.picture[index].pictureUrls}">
         <h1 class="product-title">${item.name}</h1>
@@ -148,7 +148,7 @@ function view() {
         <p><button class="btn-add-to-cart product-id" data-id="${item.id}">Add to Cart</button></p>
       </div>
      
-    </section>
+    
         `;
     });
   }
