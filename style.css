@@ -153,7 +153,9 @@ body {
 .input--form {
   margin-top: 2%; }
 
-#product--name, #product--description, #product--price {
+#product--name,
+#product--description,
+#product--price {
   border-radius: 15px;
   padding: 1%;
   /*so the line around the fields doesn't appear when clicked since the border radius is modified*/

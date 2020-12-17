@@ -1,31 +1,33 @@
 /*for admin page with inputfield*/
 
 .input--div {
-    display: flex;
-    align-items: center;
-    flex-direction: column; 
-    margin-top: 5%;
-    margin-bottom: 5%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 5%;
+  margin-bottom: 5%;
 }
 
 .input--form {
-    margin-top: 2%;
+  margin-top: 2%;
 }
 
-#product--name, #product--description, #product--price {
-    border-radius: 15px;
-    padding: 1%;
-    /*so the line around the fields doesn't appear when clicked since the border radius is modified*/
-    outline: none;
+#product--name,
+#product--description,
+#product--price {
+  border-radius: 15px;
+  padding: 1%;
+  /*so the line around the fields doesn't appear when clicked since the border radius is modified*/
+  outline: none;
 }
 
 .product--add {
-    border-radius: 15px;
-    outline: none;
+  border-radius: 15px;
+  outline: none;
 }
 
 .picture--add {
-    border-radius: 15px;
-    outline: none;
-    margin-bottom: 17px;
+  border-radius: 15px;
+  outline: none;
+  margin-bottom: 17px;
 }
