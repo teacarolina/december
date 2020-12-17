@@ -81,3 +81,31 @@
     }
   }
 }
+
+@media (min-width:280px) and (max-width:320px) {
+    .site-title {
+      font-size: 25px;
+    }
+
+    #header-h {
+      margin-top: 55%;
+    }
+
+}
+
+@media only screen and (max-width: 767px) {
+    #header-h {
+      font-size: 35px;
+    }
+
+    .header-picture-text {
+      margin-top: 10%;
+    }
+
+}
+
+@media only screen and (max-width: 768px) { 
+    .header-picture-text {
+       margin-top: 6%;
+    }
+}

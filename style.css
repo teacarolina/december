@@ -81,14 +81,32 @@ body {
   #header-picture-button:hover::after {
     left: 80%; }
 
+@media (min-width: 280px) and (max-width: 320px) {
+  .site-title {
+    font-size: 25px; }
+  #header-h {
+    margin-top: 55%; } }
+
+@media only screen and (max-width: 767px) {
+  #header-h {
+    font-size: 35px; }
+  .header-picture-text {
+    margin-top: 10%; } }
+
+@media only screen and (max-width: 768px) {
+  .header-picture-text {
+    margin-top: 6%; } }
+
 .landingpage-section {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around; }
+  /*justify-content: space-around;*/ }
 
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  width: 300px;
+  /*width: 300px;*/
+  width: 20%;
+  height: 100%;
   margin: auto;
   text-align: center;
   font-family: arial;
@@ -115,6 +133,14 @@ body {
 .product-image {
   max-width: 100%;
   max-height: 100%; }
+
+@media only screen and (max-width: 767px) {
+  .card {
+    width: 50%; } }
+
+@media only screen and (max-width: 280px) {
+  .card {
+    width: 100%; } }
 
 /*for admin page with inputfield*/
 .input--div {
@@ -287,6 +313,16 @@ td {
 .link--socialmedia:hover {
   color: white; }
 
+.footer--link {
+  color: black; }
+
+.footer--link:vistied {
+  color: black; }
+
+.footer--link:hover {
+  color: white;
+  text-decoration: none; }
+
 @media only screen and (max-width: 767px) {
   .footer--div {
     width: 100%; }
@@ -296,5 +332,27 @@ td {
     margin-top: 10%; }
   #login {
     margin-bottom: 4%; } }
+
+.container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 50%;
+  margin-top: 5%;
+  margin-bottom: 5%; }
+
+.cart--row {
+  display: flex;
+  width: 50%;
+  justify-content: space-between; }
+
+.btn-checkout {
+  border-radius: 15px;
+  outline: none; }
+
+@media only screen and (max-width: 767px) {
+  .cart--row {
+    width: 100%; } }
 
 /*media queries, 280 är fuuuul vi måste fixa*/

@@ -41,6 +41,20 @@
     color: white;
 }
 
+.footer--link {
+    color: black;
+}
+
+.footer--link:vistied {
+    color: black;
+}
+
+.footer--link:hover {
+    color: white;
+    text-decoration: none;
+}
+
+
 @media only screen and (max-width: 767px) {
     .footer--div {
         width: 100%;
