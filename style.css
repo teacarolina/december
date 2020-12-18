@@ -110,7 +110,8 @@ body {
   margin: auto;
   text-align: center;
   font-family: arial;
-  text-decoration: none; }
+  text-decoration: none;
+  margin: 1rem; }
 
 .item-price {
   color: grey;
@@ -131,8 +132,7 @@ body {
   opacity: 0.7; }
 
 .product-image {
-  max-width: 100%;
-  max-height: 100%; }
+  object-fit: fill; }
 
 @media only screen and (max-width: 767px) {
   .card {
