@@ -263,18 +263,18 @@ function loadFromLocalStorage() {
   //  cartItems.removeChild(cartItems.firstChild)
   //}
 
-//tea emilia testar
-let cartRow = document.querySelector('.put-cart-info')
+//tea emilia testarHÄÄÄÄÄÄR
+// let cartRow = document.querySelector('.put-cart-info')
 
-if (cartRow){
-  btnCheckOut = document.querySelector(".btn-clear-cart");
-  btnCheckOut.addEventListener("click", checkoutClicked);
+// if (cartRow){
+//   btnCheckOut = document.querySelector(".btn-clear-cart");
+//   btnCheckOut.addEventListener("click", checkoutClicked);
   
-  function checkoutClicked() {
-    const total = document.querySelector(".cart-total-price").innerHTML;
-    alert(`Checkout completed. Total price: ${total} SEK`);
-  }
-    }
+//   function checkoutClicked() {
+//     const total = document.querySelector(".cart-total-price").innerHTML;
+//     alert(`Checkout completed. Total price: ${total} SEK`);
+//   }
+//     }
 
 function displayCart() {
   let cartItemsSide = JSON.parse(localStorage.getItem('products'));
@@ -314,6 +314,39 @@ function displayCart() {
 
   displayCart()
   
+  let cartRow = document.querySelector('.put-cart-info')
+
+  if (cartRow) {
+
+// Get DOM Elements
+const modal = document.querySelector('#my-modal');
+const modalBtn = document.querySelector('#btn-checkout');
+const closeBtn = document.querySelector('.close');
+
+// Events
+modalBtn.addEventListener('click', openModal);
+closeBtn.addEventListener('click', closeModal);
+window.addEventListener('click', outsideClick);
+
+// Open
+function openModal() {
+  modal.style.display = 'block';
+}
+
+// Close
+function closeModal() {
+  modal.style.display = 'none';
+}
+
+// Close If Outside Click
+function outsideClick(e) {
+  if (e.target == modal) {
+    modal.style.display = 'none';
+  }
+}
+  }
+
+
   //document.getElementsByClassName("cart-total-price")[0].innerText =
  // `${product.quantity * product.productPrice}` + " SEK"; 
 /* 
@@ -336,4 +369,14 @@ function displayCart() {
  </div>
  `; */
 
- 
+ // let cartRow = document.querySelector('.put-cart-info')
+
+// if (cartRow){
+//   btnCheckOut = document.querySelector(".btn-clear-cart");
+//   btnCheckOut.addEventListener("click", checkoutClicked);
+  
+//   function checkoutClicked() {
+//     const total = document.querySelector(".cart-total-price").innerHTML;
+//     alert(`Checkout completed. Total price: ${total} SEK`);
+//   }
+//     }
