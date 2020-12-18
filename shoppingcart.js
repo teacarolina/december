@@ -126,6 +126,8 @@ function updateView() {
 
   const cart = document.querySelector(".cart-total"),
     quantSpan = document.querySelector(".cart-icon-quant");
+    //EOCHT
+    let totalPriceOnCartSite = document.querySelector(".cart-total-price");
 
   productsInCart.map(function (productInStorage, index) {
     var price = parseInt(productInStorage.productPrice);
@@ -137,6 +139,11 @@ function updateView() {
 
   if (cart) {
     cart.innerHTML = `${total}`;
+    
+  }
+  //TE
+  if (totalPriceOnCartSite){
+    totalPriceOnCartSite.innerHTML =  `${total}.00 SEK`;
   }
   if (quantSpan) {
     quantSpan.innerHTML = `${quantity}`;
@@ -248,16 +255,128 @@ function loadFromLocalStorage() {
     shoppingCartContent.appendChild(row);
   });
 }
+///Här låg det
 
-btnCheckOut = document.querySelectorAll(".btn-clear-cart")[0];
-btnCheckOut.addEventListener("click", checkoutClicked);
-
-function checkoutClicked() {
-  const total = document.querySelector(".cart-total").innerHTML;
-  alert(`Checkout completed. Total price: ${total} SEK`);
 
   // remove items on purchase
   //while (cartItems.hasChildNodes()) {
   //  cartItems.removeChild(cartItems.firstChild)
   //}
+
+//tea emilia testarHÄÄÄÄÄÄR
+// let cartRow = document.querySelector('.put-cart-info')
+
+// if (cartRow){
+//   btnCheckOut = document.querySelector(".btn-clear-cart");
+//   btnCheckOut.addEventListener("click", checkoutClicked);
+  
+//   function checkoutClicked() {
+//     const total = document.querySelector(".cart-total-price").innerHTML;
+//     alert(`Checkout completed. Total price: ${total} SEK`);
+//   }
+//     }
+
+function displayCart() {
+  let cartItemsSide = JSON.parse(localStorage.getItem('products'));
+  //cartItemsSide = JSON.parse(cartItemsSide); //konvertera till js obejcts från JSON
+  console.log(cartItemsSide);
+  let cartRow = document.querySelector('.put-cart-info')//om cart-row existerar på sidan kör denna kod
+  //let cartCost = cartItemsSide.productPrice
+
+  
+  
+  if (cartItemsSide && cartRow)//om vi har något på localstorage samt är på varukorgssidan
+   {
+      cartRow.innerHTML = '';
+      Object.values(cartItemsSide).map(product => {  //lägger till en knapp när en vara dyker upp varukorgen
+          cartRow.innerHTML += `
+                <tr>
+                      <td>
+                  <img src="${product.productImage}" width=120>
+              </td>
+                    <td>
+                        ${product.productTitle}
+                    </td>
+                    <td class="cart-price">${product.productPrice}</td>
+                    <td>
+                    <input class="cart-quantity-input" type="number" onkeyup="onQuantityChanged(this)" onchange="onQuantityChanged(this)" value="${product.quantity}">
+                        <button class="remove" onclick="removeProduct(this)" data-id="${product.productId}">X</button>
+                    </td>
+        
+                </tr>
+            `;
+        
+         
+      });
+     
+    }
+  }
+
+  displayCart()
+  
+  let cartRow = document.querySelector('.put-cart-info')
+
+  if (cartRow) {
+
+// Get DOM Elements
+const modal = document.querySelector('#my-modal');
+const modalBtn = document.querySelector('#btn-checkout');
+const closeBtn = document.querySelector('.close');
+
+// Events
+modalBtn.addEventListener('click', openModal);
+closeBtn.addEventListener('click', closeModal);
+window.addEventListener('click', outsideClick);
+
+// Open
+function openModal() {
+  modal.style.display = 'block';
 }
+
+// Close
+function closeModal() {
+  modal.style.display = 'none';
+}
+
+// Close If Outside Click
+function outsideClick(e) {
+  if (e.target == modal) {
+    modal.style.display = 'none';
+  }
+}
+  }
+
+
+  //document.getElementsByClassName("cart-total-price")[0].innerText =
+ // `${product.quantity * product.productPrice}` + " SEK"; 
+/* 
+ `
+ <div class = "flex-cart-items">
+ <div class="product"> 
+ <ion-icon name="close-circle-outline"></ion-icon>
+ <img src=itemitem>
+ <span>${product.productTitle}</span>
+ </div>
+ <div class="price-of-item">${product.productPrice},00 SEK</div>
+ <div class="quantity">
+ 
+ <span>${product.quantity}</span>
+
+ </div>
+
+ <div class="total">${product.quantity * product.productPrice},00 SEK
+ </div>
+ </div>
+ `; */
+
+ // let cartRow = document.querySelector('.put-cart-info')
+
+// if (cartRow){
+//   btnCheckOut = document.querySelector(".btn-clear-cart");
+//   btnCheckOut.addEventListener("click", checkoutClicked);
+  
+//   function checkoutClicked() {
+//     const total = document.querySelector(".cart-total-price").innerHTML;
+//     alert(`Checkout completed. Total price: ${total} SEK`);
+//   }
+//     }

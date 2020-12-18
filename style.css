@@ -100,12 +100,13 @@ body {
 .landingpage-section {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-around;
   /*justify-content: space-around;*/ }
 
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   /*width: 300px;*/
-  width: 20%;
+  width: 18rem;
   height: 100%;
   margin: auto;
   text-align: center;
@@ -113,7 +114,7 @@ body {
   text-decoration: none;
   margin: 1rem; }
 
-.item-price {
+.price {
   color: grey;
   font-size: 22px; }
 
@@ -132,7 +133,10 @@ body {
   opacity: 0.7; }
 
 .product-image {
-  object-fit: fill; }
+  width: 100%;
+  max-height: auto;
+  min-height: 214.5;
+  object-fit: cover; }
 
 @media only screen and (max-width: 767px) {
   .card {
@@ -172,7 +176,8 @@ body {
 
 .cart-container {
   display: flex;
-  justify-content: flex-end; }
+  justify-content: flex-end;
+  margin-left: auto; }
 
 ul {
   list-style: none; }
@@ -235,6 +240,16 @@ td {
 .cart-total {
   text-align: end; }
 
+.navbar {
+  justify-content: start;
+  max-width: 100%; }
+
+.nav-link {
+  text-align: center; }
+
+.nav-link:hover {
+  background-color: lightgray; }
+
 .contact-container {
   display: flex;
   justify-content: center;
@@ -267,19 +282,59 @@ td {
   min-height: 10rem; }
 
 .contact-button {
+  position: relative;
+  background: none;
+  color: white;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 0.2em solid white;
+  padding: 0.5em 1em; }
+  .contact-button::before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 10%;
+    background: #427580;
+    height: 0.3em;
+    right: 20%;
+    top: -0.21em;
+    transform: skewX(-45deg);
+    -webkit-transition: all 0.45s cubic-bezier(0.86, 0, 0.07, 1);
+    transition: all 0.45s cubic-bezier(0.86, 0, 0.07, 1); }
+  .contact-button::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 10%;
+    background: #427580;
+    height: 0.3em;
+    left: 20%;
+    bottom: -0.25em;
+    transform: skewX(45deg);
+    -webkit-transition: all 0.45 cubic-bezier(0.86, 0, 0.07, 1);
+    transition: all 0.45s cubic-bezier(0.86, 0, 0.07, 1); }
+  .contact-button:hover::before {
+    right: 80%; }
+  .contact-button:hover::after {
+    left: 80%; }
+
+/* .contact-button {
   margin: 0.5rem;
   min-width: 10rem;
   min-height: 2.4rem;
   background-color: A4C1C5;
-  font-weight: 400; }
+  font-weight: 400;
+}
 
 .contact-button:hover {
-  background-color: white; }
+  background-color: white;
+}
 
 .inga-kanter {
   border-radius: 15px;
-  outline: none; }
-
+  outline: none;
+}
+ */
 .footer-section {
   display: flex;
   flex-wrap: wrap;
@@ -335,6 +390,94 @@ td {
   #login {
     margin-bottom: 4%; } }
 
+:root {
+  --modal-duration: 1s; }
+
+/* body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f4f4;
+    font-size: 17px;
+    line-height: 1.6;
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+  }
+   */
+.button-modal {
+  background: #428bca;
+  padding: 1em 2em;
+  color: #fff;
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer; }
+
+.button-modal:hover {
+  background: #3876ac; }
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5); }
+
+.modal-content {
+  margin: 20% auto;
+  width: 40%;
+  height: 30%;
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
+  animation-name: modalopen;
+  animation-duration: var(--modal-duration); }
+
+.modal-header h2,
+.modal-footer h3 {
+  margin: 0; }
+
+.shoe-icon {
+  font-size: 10rem; }
+
+.modal-header {
+  background: var(--modal-color);
+  padding: 15px;
+  color: #fff;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px; }
+
+.modal-body {
+  padding: 10px 20px;
+  background: #fff; }
+
+.modal-footer {
+  background: var(--modal-color);
+  padding: 10px;
+  color: #fff;
+  text-align: center;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px; }
+
+.close {
+  color: black;
+  float: right;
+  font-size: 30px;
+  color: black; }
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer; }
+
+@keyframes modalopen {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
 .container {
   display: flex;
   align-items: center;
@@ -353,6 +496,85 @@ td {
   border-radius: 15px;
   outline: none; }
 
+.th-cart {
+  font-size: 1.8rem;
+  font-weight: normal; }
+
+.table-header-cart {
+  text-align: center; }
+
+.section-h2 {
+  font-size: 2.5rem; }
+
+.checkout-container {
+  display: flex;
+  justify-content: center; }
+
+.total-container {
+  display: flex;
+  justify-content: center;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem; }
+
+.total-in-cart {
+  font-weight: bold; }
+
+#btn-checkout {
+  font-size: 1.1rem;
+  position: relative;
+  background: none;
+  color: #427580;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 0.2em solid #427580; }
+  #btn-checkout::before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 10%;
+    background: white;
+    height: 0.3em;
+    right: 20%;
+    top: -0.21em;
+    transform: skewX(-45deg);
+    -webkit-transition: all 0.45s cubic-bezier(0.86, 0, 0.07, 1);
+    transition: all 0.45s cubic-bezier(0.86, 0, 0.07, 1); }
+  #btn-checkout::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 10%;
+    background: white;
+    height: 0.3em;
+    left: 20%;
+    bottom: -0.25em;
+    transform: skewX(45deg);
+    -webkit-transition: all 0.45 cubic-bezier(0.86, 0, 0.07, 1);
+    transition: all 0.45s cubic-bezier(0.86, 0, 0.07, 1); }
+  #btn-checkout:hover::before {
+    right: 80%; }
+  #btn-checkout:hover::after {
+    left: 80%; }
+
+/* .flex-cart-items {
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid black;
+    padding-right: 20px;
+    
+    
+}
+
+.remove-x-button {
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+.product {
+    padding-left: 20px;
+}
+
+ */
 @media only screen and (max-width: 767px) {
   .cart--row {
     width: 100%; } }

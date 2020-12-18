@@ -1,6 +1,7 @@
 .cart-container {
   display: flex;
   justify-content: flex-end;
+  margin-left: auto;
 }
 
 ul {
@@ -74,4 +75,17 @@ td {
 .total,
 .cart-total {
   text-align: end;
+}
+
+.navbar {
+  justify-content: start;
+  max-width: 100%;
+}
+
+.nav-link {
+  text-align: center;
+}
+
+.nav-link:hover {
+  background-color: lightgray;
 }
