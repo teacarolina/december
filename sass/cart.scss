@@ -1,0 +1,125 @@
+.container {
+    display: flex;
+    align-items: center;
+    flex-direction: column; 
+    justify-content: space-between;
+    height: 50%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.cart--row {
+    display: flex;
+    width: 50%;
+    justify-content: space-between;
+}
+
+.btn-checkout {
+    border-radius: 15px;
+    outline: none;
+}
+
+.th-cart {
+    font-size: 1.8rem;
+    font-weight: normal;
+}
+
+.table-header-cart {
+    text-align: center;
+}
+
+.section-h2 {
+font-size: 2.5rem;
+
+}
+
+.checkout-container {
+    display: flex;
+    justify-content: center;
+    
+}
+
+.total-container {
+    display: flex;
+    justify-content: center;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.total-in-cart {
+    font-weight: bold;
+}
+
+#btn-checkout {
+    font-size: 1.1rem;
+    position: relative;
+  background: none;
+  color: #427580;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 0.2em solid #427580;
+  //padding: 0.5em 1em;
+  &::before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 10%;
+    background: white;
+    height: 0.3em;
+    right: 20%;
+    top: -0.21em;
+    transform: skewX(-45deg);
+    -webkit-transition: all 0.45s cubic-bezier(0.86, 0, 0.07, 1);
+    transition: all 0.45s cubic-bezier(0.86, 0, 0.07, 1);
+  }
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 10%;
+    background: white;
+    height: 0.3em;
+    left: 20%;
+    bottom: -0.25em;
+    transform: skewX(45deg);
+    -webkit-transition: all 0.45 cubic-bezier(0.86, 0, 0.07, 1);
+    transition: all 0.45s cubic-bezier(0.86, 0, 0.07, 1);
+  }
+  &:hover {
+    &::before {
+      right: 80%;
+    }
+    &::after {
+      left: 80%;
+    }
+  }
+}
+
+
+
+
+/* .flex-cart-items {
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid black;
+    padding-right: 20px;
+    
+    
+}
+
+.remove-x-button {
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+.product {
+    padding-left: 20px;
+}
+
+ */
+@media only screen and (max-width: 767px) {
+    .cart--row {
+        width: 100%;
+}
+
+}

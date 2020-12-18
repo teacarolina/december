@@ -29,11 +29,6 @@
     margin-top: 15%;
 }
 
-/*fixa i mediaqueries så den är fixed/tea*/
-#admin--footer {
-    height: 40px;
-}
-
 .link--socialmedia {
     color: black;
 }
@@ -45,6 +40,20 @@
 .link--socialmedia:hover {
     color: white;
 }
+
+.footer--link {
+    color: black;
+}
+
+.footer--link:vistied {
+    color: black;
+}
+
+.footer--link:hover {
+    color: white;
+    text-decoration: none;
+}
+
 
 @media only screen and (max-width: 767px) {
     .footer--div {
