@@ -25,8 +25,8 @@ function save() {
   var id = Math.random();
   var picture = JSON.parse(localStorage.getItem("urls")) //LA TILL DET HÄR
 
-    //console.log(id)
-  
+  //console.log(id)
+
   //storing an array in local storage
   if (localStorage.getItem("data") == null) {
     localStorage.setItem("data", "[]");
@@ -62,44 +62,43 @@ function removeElement(id) {
 //fungerande error, fråga rakib om det här!
 //function to edit object in local storage
 function editElement(id) {
-    //prompt alert to add new values 
-    var newName = prompt("Please enter new name")
-    var newDescription = prompt("Please enter new description")
-    var newPrice = prompt("Please enter new price")
-    //get localstorage where previous input is saved
-    var editData = JSON.parse(localStorage.getItem("data"))
-    //for loop checking id for specific object, choosing that object and replacing
-    //with new input from prompt alert
+  //prompt alert to add new values
+  var newName = prompt("Please enter new name");
+  var newDescription = prompt("Please enter new description");
+  var newPrice = prompt("Please enter new price");
+  //get localstorage where previous input is saved
+  var editData = JSON.parse(localStorage.getItem("data"));
+  //for loop checking id for specific object, choosing that object and replacing
+  //with new input from prompt alert
 
-    for (var i in editData) {
-        if (editData[i].id === id) {
-           editData[i].name = newName 
-           editData[i].description = newDescription
-           editData[i].price = newPrice
-           //saving new data to localstorage
-           
-        }
+  for (var i in editData) {
+    if (editData[i].id === id) {
+      editData[i].name = newName;
+      editData[i].description = newDescription;
+      editData[i].price = newPrice;
+      //saving new data to localstorage
     }
-    //saving new data to localstorage, is outside the loop so we don't
-    //define what edit data is every time the loop runs
-    localStorage.setItem("data", JSON.stringify(editData))
+  }
+  //saving new data to localstorage, is outside the loop so we don't
+  //define what edit data is every time the loop runs
+  localStorage.setItem("data", JSON.stringify(editData));
   view();
 }
 //editData = localStorage.setItem("data", JSON.stringify(editData))
 
 //function that creates the cards
-function view() { 
-    //choosing where the input should appear
-    var adminPage = document.querySelector(".admin-index")
-    var homePage = document.querySelector(".landingpage-section")
-    //Kollar om vi misslyckats att hämta homePage, finns ej slutar vi
-    if(homePage === null){
-        console.log('hittar ej homepage')
-        return;
-    }
-    //tar bort tidigare produkter så de inte läggs in om och om igen
-    homePage.innerHTML = '';
-    var dataProductInfo = localStorage.getItem("data");
+function view() {
+  //choosing where the input should appear
+  var adminPage = document.querySelector(".admin-index");
+  var homePage = document.querySelector(".landingpage-section");
+  //Kollar om vi misslyckats att hämta homePage, finns ej slutar vi
+  if (homePage === null) {
+    console.log("hittar ej homepage");
+    return;
+  }
+  //tar bort tidigare produkter så de inte läggs in om och om igen
+  homePage.innerHTML = "";
+  var dataProductInfo = localStorage.getItem("data");
 
     //Kolla om dataproduct är null, då hoppar vi ur funktionen eftersom något är fel
     if( dataProductInfo == null) {
@@ -119,7 +118,7 @@ function view() {
         Object.values(test).map((item, index) => { //testUrl stod i () tidigare också !!
         //choosing how they should appear on page
         homePage.innerHTML += `
-        <section class="landingpage-section">
+        
         <div class="card">  
         <img class="product-image" src="${item.picture[index].pictureUrls}">
         <h1>${item.name}</h1>
@@ -130,7 +129,7 @@ function view() {
         <button onclick="editElement(${item.id})" class="admin-edit" type="button">EDIT</button>
       </div>
      
-    </section>
+    
         `});   
     }
     //if first statement is false this will run if its true
@@ -139,7 +138,7 @@ function view() {
         Object.values(test).map((item, index) => { 
         //choosing how they should appear on page
         homePage.innerHTML += `
-        <section class="landingpage-section">
+      
         <div class="card">  
         <img class="product-image" src="${item.picture[index].pictureUrls}">
         <h1 class="product-title">${item.name}</h1>
@@ -148,7 +147,7 @@ function view() {
         <p><button class="btn-add-to-cart product-id" data-id="${item.id}">Add to Cart</button></p>
       </div>
      
-    </section>
+    
         `;
     });
   }

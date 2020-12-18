@@ -2,18 +2,52 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
+  border: 4px solid white;
+  min-width: 50rem;
+  border-radius: 15px;
+  outline: none;
 }
 
 .contact-item {
   text-align: center;
+  font-weight: 400;
 }
 
 .contact-text {
   color: white;
+  margin: 2rem;
+  font-weight: 400;
+  font-size: 1.3rem;
 }
 
 .contact-header {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.contact-input {
+  min-width: 25rem;
+  min-height: 2.4rem;
+}
+
+.extra-height {
+  min-height: 10rem;
+}
+
+.contact-button {
+  margin: 0.5rem;
+  min-width: 10rem;
+  min-height: 2.4rem;
+  background-color: A4C1C5;
+  font-weight: 400;
+}
+
+.contact-button:hover {
+  background-color: white;
+}
+
+.inga-kanter {
+  border-radius: 15px;
+  outline: none;
 }
