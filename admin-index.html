@@ -9,7 +9,6 @@
     <!--HTML icon-->
     <link rel="icon" href="images/sneakers-icon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
-    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="crossorigin="anonymous"/>
     <link rel="stylesheet" href="style.css" />
     <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Libre+Barcode+39+Text&display=swap" rel="stylesheet">
@@ -38,11 +37,13 @@
 			  </div>
         </div>
         </nav> <!--la till den här-->
+        </div>
             <!-- navbar end -->
             <div class="header-section">
               <div class="header-picture-text">
               <h1 id="header-h" class="admin-index">Admin page</h1>
-             <a  href="#edit-start" id="header-picture-a" > <button id="header-picture-button">edit products</a></button>
+              <button id="header-picture-button" onclick="document.location='#edit-start'">edit products</button>
+             <!--<a  href="#edit-start" id="header-picture-a" > <button id="header-picture-button">edit products</a></button>-->
             </div>
           </div>
     </header>
@@ -57,10 +58,10 @@
     <footer class="footer-section">
         <div class="footer--div">
         <h2>Contact</h2>
-        <a class="footer--link" href="contact.html">Send us a message</a></br></br>
+        <a class="footer--link" href="contact.html">Send us a message</a><br><br>
         <h3>WE💙YOU</h3>
           <p>Free returns</p>
-          <p>Free shipment*</br><small>*For orders over 500sek</small></p>
+          <p>Free shipment*<br><small>*For orders over 500sek</small></p>
       </div>
         <div class="footer--div">
         <div>
@@ -72,7 +73,7 @@
         <span class="footer--icons"><i class="fab fa-fedex"></i></span> 
         </div>
         <p class="p--socialmedia">Follow our story</p>
-        <h2><a class="link--socialmedia" href="https://www.instagram.com/sneakersinstitutet/"><i class="fab fa-instagram"></i></a></h2>
+        <p><a class="link--socialmedia" href="https://www.instagram.com/sneakersinstitutet/"><i class="fab fa-instagram"></i></a></p>
       </div>
     <div class="footer--div">
       <!--Removed button for admin login since we are on admin page-->

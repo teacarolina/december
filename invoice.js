@@ -1,3 +1,4 @@
+//function below creates invoice, downloaded open-source https://parall.ax/products/jspdf to use their code
 function generatePDF() {
     var doc = new jsPDF()
     doc.setFontSize(24);
