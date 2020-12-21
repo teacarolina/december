@@ -1,7 +1,9 @@
 async function saveUrls() {
-  const response = await fetch("https://api.unsplash.com/photos/random?query=sneakers&orientation=landscape&client_id=hoi7Zos7S4lDzSm4l4MQ3P4apEmBUDWctKoocFTwnwY")
-  const dataUrls = await response.json()
-  var pictureUrls = dataUrls.urls.small
+  const response = await fetch(
+    "https://api.unsplash.com/photos/random?query=sneakers&orientation=landscape&client_id=hoi7Zos7S4lDzSm4l4MQ3P4apEmBUDWctKoocFTwnwY"
+  );
+  const dataUrls = await response.json();
+  var pictureUrls = dataUrls.urls.small;
   //console.log(picture)
   //storing an array in local storage
   if (localStorage.getItem("urls") == null) {
@@ -33,8 +35,8 @@ function save() {
   }
   //old data input pushed into array so no data is lost
   var old_data = JSON.parse(localStorage.getItem("data"));
-  old_data.push({ name, description, price, id, picture }); //LA TILL PICTURE HÄR 
-  
+  old_data.push({ name, description, price, id, picture }); //LA TILL PICTURE HÄR
+
   //storing the array with the new and old data
   localStorage.setItem("data", JSON.stringify(old_data));
 
@@ -100,28 +102,28 @@ function view() {
   homePage.innerHTML = "";
   var dataProductInfo = localStorage.getItem("data");
 
-    //Kolla om dataproduct är null, då hoppar vi ur funktionen eftersom något är fel
-    if( dataProductInfo == null) {
-        console.log('hello');
-        return;
-    }
-    var test = JSON.parse(localStorage.getItem("data")) 
-   // var testUrl = JSON.parse(localStorage.getItem("urls")) testat hämta url från localstorage? ?? 
-    //if we have an item in local storage named data and it´s not empty and a section called homePage/adminPage 
-    //exists it should be added to this section
-    if(adminPage){
-       
-        //item.pictureUrls[index] om vi map (item, index) måste vara en array pictureUrls 
-        //collecting the values stored in objects in array 
-        //old image url:
-        //https://images.unsplash.com/photo-1521774971864-62e842046145?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=750&q=80"
-        Object.values(test).map((item, index) => { //testUrl stod i () tidigare också !!
-        //choosing how they should appear on page
-        homePage.innerHTML += `
+  //Kolla om dataproduct är null, då hoppar vi ur funktionen eftersom något är fel
+  if (dataProductInfo == null) {
+    console.log("hello");
+    return;
+  }
+  var test = JSON.parse(localStorage.getItem("data"));
+  // var testUrl = JSON.parse(localStorage.getItem("urls")) testat hämta url från localstorage? ??
+  //if we have an item in local storage named data and it´s not empty and a section called homePage/adminPage
+  //exists it should be added to this section
+  if (adminPage) {
+    //item.pictureUrls[index] om vi map (item, index) måste vara en array pictureUrls
+    //collecting the values stored in objects in array
+    //old image url:
+    //https://images.unsplash.com/photo-1521774971864-62e842046145?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=750&q=80"
+    Object.values(test).map((item, index) => {
+      //testUrl stod i () tidigare också !!
+      //choosing how they should appear on page
+      homePage.innerHTML += `
         
       
         <div class="card">  
-        <img class="product-image" src="${item.picture[index].pictureUrls}" style="100%">
+        <img class="product-image" src="${item.picture[index].pictureUrls}" style=with"100%">
         <h1>${item.name}</h1>
         <p class="price">${item.price}</p>
         <p>${item.description}</p>
@@ -131,17 +133,18 @@ function view() {
       </div>
      
     
-        `});   
-    }
-    //if first statement is false this will run if its true
-    else { 
-        //collecting the values stored in objects in array 
-        Object.values(test).map((item, index) => { 
-        //choosing how they should appear on page
-        homePage.innerHTML += `
+        `;
+    });
+  }
+  //if first statement is false this will run if its true
+  else {
+    //collecting the values stored in objects in array
+    Object.values(test).map((item, index) => {
+      //choosing how they should appear on page
+      homePage.innerHTML += `
       
         <div class="card">  
-        <img class="product-image" src="${item.picture[index].pictureUrls}" style="100%">
+        <img class="product-image" src="${item.picture[index].pictureUrls}" style=width"100%">
         <h1 class="product-title">${item.name}</h1>
         <p class="product-price">${item.price}</p>
         <p>${item.description}</p>
