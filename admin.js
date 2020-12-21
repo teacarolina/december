@@ -1,10 +1,12 @@
+//functions below adds, edits and removes products to the website and collects pictures from api
+
+//function to save urls from api
 async function saveUrls() {
   const response = await fetch(
     "https://api.unsplash.com/photos/random?query=sneakers&orientation=landscape&client_id=hoi7Zos7S4lDzSm4l4MQ3P4apEmBUDWctKoocFTwnwY"
   );
   const dataUrls = await response.json();
   var pictureUrls = dataUrls.urls.small;
-  //console.log(picture)
   //storing an array in local storage
   if (localStorage.getItem("urls") == null) {
     localStorage.setItem("urls", "[]");
@@ -25,9 +27,7 @@ function save() {
   var price = document.querySelector("#product--price").value;
   //to give each card a specific id (random number 0-1)
   var id = Math.random();
-  var picture = JSON.parse(localStorage.getItem("urls")); //LA TILL DET HÄR
-
-  //console.log(id)
+  var picture = JSON.parse(localStorage.getItem("urls")); 
 
   //storing an array in local storage
   if (localStorage.getItem("data") == null) {
@@ -35,7 +35,7 @@ function save() {
   }
   //old data input pushed into array so no data is lost
   var old_data = JSON.parse(localStorage.getItem("data"));
-  old_data.push({ name, description, price, id, picture }); //LA TILL PICTURE HÄR
+  old_data.push({ name, description, price, id, picture });
 
   //storing the array with the new and old data
   localStorage.setItem("data", JSON.stringify(old_data));
@@ -60,8 +60,6 @@ function removeElement(id) {
   view();
 }
 
-//Emilia+Tea: om vi använder prompt kan vi acceptera endast siffror? ev. styla om till ngt annat än prompt
-//fungerande error, fråga rakib om det här!
 //function to edit object in local storage
 function editElement(id) {
   //prompt alert to add new values
@@ -70,15 +68,14 @@ function editElement(id) {
   var newPrice = prompt("Please enter new price");
   //get localstorage where previous input is saved
   var editData = JSON.parse(localStorage.getItem("data"));
+  
   //for loop checking id for specific object, choosing that object and replacing
   //with new input from prompt alert
-
   for (var i in editData) {
     if (editData[i].id === id) {
       editData[i].name = newName;
       editData[i].description = newDescription;
       editData[i].price = newPrice;
-      //saving new data to localstorage
     }
   }
   //saving new data to localstorage, is outside the loop so we don't
@@ -86,42 +83,32 @@ function editElement(id) {
   localStorage.setItem("data", JSON.stringify(editData));
   view();
 }
-//editData = localStorage.setItem("data", JSON.stringify(editData))
 
 //function that creates the cards
 function view() {
   //choosing where the input should appear
   var adminPage = document.querySelector(".admin-index");
   var homePage = document.querySelector(".landingpage-section");
-  //Kollar om vi misslyckats att hämta homePage, finns ej slutar vi
+  //checking if we failed to retrive homePage, if it doesn't exist we exit the code
   if (homePage === null) {
-    console.log("hittar ej homepage");
     return;
   }
-  //tar bort tidigare produkter så de inte läggs in om och om igen
+  //takes away previous products so they don't get added over and over again
   homePage.innerHTML = "";
   var dataProductInfo = localStorage.getItem("data");
 
-  //Kolla om dataproduct är null, då hoppar vi ur funktionen eftersom något är fel
+  //check if dataproduct is null then we exit the function because something is wrong
   if (dataProductInfo == null) {
-    console.log("hello");
     return;
   }
   var test = JSON.parse(localStorage.getItem("data"));
-  // var testUrl = JSON.parse(localStorage.getItem("urls")) testat hämta url från localstorage? ??
+  
   //if we have an item in local storage named data and it´s not empty and a section called homePage/adminPage
   //exists it should be added to this section
   if (adminPage) {
-    //item.pictureUrls[index] om vi map (item, index) måste vara en array pictureUrls
-    //collecting the values stored in objects in array
-    //old image url:
-    //https://images.unsplash.com/photo-1521774971864-62e842046145?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=750&q=80"
     Object.values(test).map((item, index) => {
-      //testUrl stod i () tidigare också !!
       //choosing how they should appear on page
       homePage.innerHTML += `
-        
-      
         <div class="card">  
         <img class="product-image" src="${item.picture[index].pictureUrls}" style=with"100%">
         <h1>${item.name}</h1>
@@ -131,8 +118,6 @@ function view() {
         <button onclick="removeElement(${item.id})" class="admin-remove" type="button">REMOVE</button>
         <button onclick="editElement(${item.id})" class="admin-edit" type="button">EDIT</button>
       </div>
-     
-    
         `;
     });
   }
@@ -142,7 +127,6 @@ function view() {
     Object.values(test).map((item, index) => {
       //choosing how they should appear on page
       homePage.innerHTML += `
-      
         <div class="card">  
         <img class="product-image" src="${item.picture[index].pictureUrls}" style=width"100%">
         <h1 class="product-title">${item.name}</h1>
@@ -150,8 +134,6 @@ function view() {
         <p>${item.description}</p>
         <p><button class="btn-add-to-cart product-id" data-id="${item.id}">Add to Cart</button></p>
       </div>
-     
-    
         `;
     });
   }

@@ -255,40 +255,17 @@ function loadFromLocalStorage() {
     shoppingCartContent.appendChild(row);
   });
 }
-///Här låg det
 
-
-  // remove items on purchase
-  //while (cartItems.hasChildNodes()) {
-  //  cartItems.removeChild(cartItems.firstChild)
-  //}
-
-//tea emilia testarHÄÄÄÄÄÄR
-// let cartRow = document.querySelector('.put-cart-info')
-
-// if (cartRow){
-//   btnCheckOut = document.querySelector(".btn-clear-cart");
-//   btnCheckOut.addEventListener("click", checkoutClicked);
-  
-//   function checkoutClicked() {
-//     const total = document.querySelector(".cart-total-price").innerHTML;
-//     alert(`Checkout completed. Total price: ${total} SEK`);
-//   }
-//     }
-
+//function to display cart items on cart.html
 function displayCart() {
   let cartItemsSide = JSON.parse(localStorage.getItem('products'));
-  //cartItemsSide = JSON.parse(cartItemsSide); //konvertera till js obejcts från JSON
-  console.log(cartItemsSide);
-  let cartRow = document.querySelector('.put-cart-info')//om cart-row existerar på sidan kör denna kod
-  //let cartCost = cartItemsSide.productPrice
-
+  let cartRow = document.querySelector('.put-cart-info')
   
-  
-  if (cartItemsSide && cartRow)//om vi har något på localstorage samt är på varukorgssidan
+  //if we have anything in localstorage and displayed on cart.html
+  if (cartItemsSide && cartRow)
    {
       cartRow.innerHTML = '';
-      Object.values(cartItemsSide).map(product => {  //lägger till en knapp när en vara dyker upp varukorgen
+      Object.values(cartItemsSide).map(product => {
           cartRow.innerHTML += `
                 <tr>
                       <td>
@@ -313,70 +290,36 @@ function displayCart() {
   }
 
   displayCart()
-  
+
+//function below creates a modal 
   let cartRow = document.querySelector('.put-cart-info')
 
   if (cartRow) {
 
-// Get DOM Elements
+//get DOM elements
 const modal = document.querySelector('#my-modal');
 const modalBtn = document.querySelector('#btn-checkout');
 const closeBtn = document.querySelector('.close');
 
-// Events
+//events added
 modalBtn.addEventListener('click', openModal);
 closeBtn.addEventListener('click', closeModal);
 window.addEventListener('click', outsideClick);
 
-// Open
+//open modal
 function openModal() {
   modal.style.display = 'block';
 }
 
-// Close
+//close modal
 function closeModal() {
   modal.style.display = 'none';
 }
 
-// Close If Outside Click
+//close modal if outside click
 function outsideClick(e) {
   if (e.target == modal) {
     modal.style.display = 'none';
   }
 }
   }
-
-
-  //document.getElementsByClassName("cart-total-price")[0].innerText =
- // `${product.quantity * product.productPrice}` + " SEK"; 
-/* 
- `
- <div class = "flex-cart-items">
- <div class="product"> 
- <ion-icon name="close-circle-outline"></ion-icon>
- <img src=itemitem>
- <span>${product.productTitle}</span>
- </div>
- <div class="price-of-item">${product.productPrice},00 SEK</div>
- <div class="quantity">
- 
- <span>${product.quantity}</span>
-
- </div>
-
- <div class="total">${product.quantity * product.productPrice},00 SEK
- </div>
- </div>
- `; */
-
- // let cartRow = document.querySelector('.put-cart-info')
-
-// if (cartRow){
-//   btnCheckOut = document.querySelector(".btn-clear-cart");
-//   btnCheckOut.addEventListener("click", checkoutClicked);
-  
-//   function checkoutClicked() {
-//     const total = document.querySelector(".cart-total-price").innerHTML;
-//     alert(`Checkout completed. Total price: ${total} SEK`);
-//   }
-//     }

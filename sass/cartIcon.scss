@@ -28,12 +28,6 @@ ul {
   background-color: white;
 }
 
-@media (hover: none) {
-  .cart-menu:hover {
-    color: inherit;
-  }
-}
-
 .cart-content {
   text-align: center;
 }
@@ -49,7 +43,7 @@ table {
 }
 
 /* clear cart button */
-.btn-clear-cart {
+.checkout-button {
   display: inline-block;
   height: 2.4rem;
   padding: 0 30px;
@@ -61,7 +55,7 @@ table {
   padding-top: 0.4rem;
 }
 
-.btn-clear-cart:hover {
+.checkout-button:hover {
   color: white;
   background-color: #a4c1c5;
   text-decoration: none;

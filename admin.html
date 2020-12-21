@@ -11,7 +11,6 @@
     <!--HTML icon-->
     <link rel="icon" href="images/sneakers-icon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
-    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="crossorigin="anonymous"/>
     <link rel="stylesheet" href="style.css"/>
     <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Libre+Barcode+39+Text&display=swap" rel="stylesheet">
@@ -43,11 +42,11 @@
     <div class="input--div">
       <h2>Add product</h2>
       <form class="input--form">
-        <label for="name">Name</label></br>
+        <label for="product--name">Name</label><br>
         <input type="text" id="product--name" name="name"><br><br>
-        <label for="description">Description</label></br>
+        <label for="product--description">Description</label><br>
         <input type="text" id="product--description" name="description"><br><br>
-        <label for="price">Price</label></br>
+        <label for="product--price">Price</label><br>
         <input type="number" id="product--price" name="price"><br><br>
       </form>
       <button onclick="saveUrls();" class="picture--add">Add picture</button>
@@ -58,10 +57,10 @@
     <footer class="footer-section footer-fix">
       <div class="footer--div">
        <h2>Contact</h2>
-       <a class="footer--link" href="contact.html">Send us a message</a></br></br>
+       <a class="footer--link" href="contact.html">Send us a message</a><br><br>
         <h3>WE💙YOU</h3>
         <p>Free returns</p>
-        <p>Free shipment*</br><small>*For orders over 500sek</small></p>
+        <p>Free shipment*<br><small>*For orders over 500sek</small></p>
       </div>
       <div class="footer--div">
         <div>
@@ -73,9 +72,11 @@
         <span class="footer--icons"><i class="fab fa-fedex"></i></span> 
         </div>
         <p class="p--socialmedia">Follow our story</p>
-        <h2><a class="link--socialmedia" href="https://www.instagram.com/sneakersinstitutet/"><i class="fab fa-instagram"></i></a></h2>
+        <p><a class="link--socialmedia" href="https://www.instagram.com/sneakersinstitutet/"><i class="fab fa-instagram"></i></a></p>
       </div>
-      </div>
+      <div class="footer--div">
+        <!--Removed button for admin login since we are on admin page-->
+        </div>
     </footer>
 </body>
 </html>

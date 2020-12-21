@@ -1,4 +1,3 @@
-@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
 * {
   box-sizing: border-box; }
@@ -198,10 +197,6 @@ ul {
   min-width: 25rem;
   background-color: white; }
 
-@media (hover: none) {
-  .cart-menu:hover {
-    color: inherit; } }
-
 .cart-content {
   text-align: center; }
 
@@ -214,7 +209,7 @@ table {
   width: 100%; }
 
 /* clear cart button */
-.btn-clear-cart {
+.checkout-button {
   display: inline-block;
   height: 2.4rem;
   padding: 0 30px;
@@ -225,7 +220,7 @@ table {
   border: 1px solid lightgrey;
   padding-top: 0.4rem; }
 
-.btn-clear-cart:hover {
+.checkout-button:hover {
   color: white;
   background-color: #a4c1c5;
   text-decoration: none; }
@@ -345,13 +340,11 @@ td {
 
 .contact-button:hover {
   background-color: white;
-}
-
+} */
 .inga-kanter {
   border-radius: 15px;
-  outline: none;
-}
- */
+  outline: none; }
+
 .label-input {
   width: 100%; }
 
@@ -604,5 +597,3 @@ td {
 @media only screen and (max-width: 767px) {
   .cart--row {
     width: 100%; } }
-
-/*media queries, 280 är fuuuul vi måste fixa*/
