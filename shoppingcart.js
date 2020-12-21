@@ -138,7 +138,7 @@ function updateView() {
   var quant = parseInt(productsInCart.length);
 
   if (cart) {
-    cart.innerHTML = `${total}`;
+    cart.innerHTML = `${total}.00 SEK`;
     
   }
   //TE
