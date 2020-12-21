@@ -354,7 +354,8 @@ td {
 
 .footer--div {
   width: 20%;
-  text-align: center; }
+  text-align: center;
+  margin-top: 20px; }
 
 .footer--icons {
   font-size: 30px;
@@ -500,7 +501,7 @@ td {
 .table-header-cart {
   text-align: center; }
 
-.section-h2 {
+#section-h2 {
   font-size: 2.5rem; }
 
 .checkout-container {
@@ -555,4 +556,8 @@ td {
 
 @media only screen and (max-width: 767px) {
   .cart--row {
-    width: 100%; } }
+    width: 100%; }
+  .th-cart {
+    font-size: 1rem; }
+  #section-h2 {
+    font-size: 1.5rem; } }
