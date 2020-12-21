@@ -28,6 +28,12 @@ ul {
   background-color: white;
 }
 
+@media (hover: none) {
+  .cart-menu:hover {
+    color: inherit;
+  }
+}
+
 .cart-content {
   text-align: center;
 }
@@ -52,6 +58,22 @@ table {
   background-color: transparent;
   border-radius: 4px;
   border: 1px solid lightgrey;
+  padding-top: 0.4rem;
+}
+
+.btn-clear-cart:hover {
+  color: white;
+  background-color: #a4c1c5;
+  text-decoration: none;
+}
+
+.remove {
+  background-color: #a4c1c5;
+}
+
+.remove:hover {
+  color: black;
+  background-color: white;
 }
 
 .shopping-cart {
@@ -68,8 +90,9 @@ td {
   border-bottom: 1px solid #e1e1e1;
 }
 
-.cart-quantity-input {
-  width: 50%;
+.cart-quantity-input,
+.remove {
+  width: 2.5rem;
 }
 
 .total,
