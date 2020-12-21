@@ -1,75 +1,77 @@
 .footer-section {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #A4C1C5;
-    height: 60%;
-    max-width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #a4c1c5;
+  height: 60%;
+  max-width: 100%;
 }
 
 .footer--div {
-    width: 20%;
-    text-align: center;
+  width: 20%;
+  text-align: center;
 }
 
 .footer--icons {
-   font-size: 30px;
-   margin-right: 1%;
+  font-size: 30px;
+  margin-right: 1%;
 }
 
 #login {
-    transition-duration: 0.4s;
-    background-color: black;
-    color: #A4C1C5;
-    border-radius: 6px;
+  transition-duration: 0.4s;
+  background-color: black;
+  color: #a4c1c5;
+  border-radius: 6px;
 }
 
 .p--socialmedia {
-    margin-top: 15%;
+  margin-top: 15%;
 }
 
 .link--socialmedia {
-    color: black;
+  color: black;
 }
 
 .link--socialmedia:visited {
-    color: black;
+  color: black;
 }
 
 .link--socialmedia:hover {
-    color: white;
+  color: white;
 }
 
 .footer--link {
-    color: black;
+  color: black;
 }
 
 .footer--link:vistied {
-    color: black;
+  color: black;
 }
 
 .footer--link:hover {
-    color: white;
-    text-decoration: none;
+  color: white;
+  text-decoration: none;
 }
-
 
 @media only screen and (max-width: 767px) {
-    .footer--div {
-        width: 100%;
-    }
+  .footer--div {
+    width: 100%;
+  }
 
-    .footer-section {
-        height: 82%;
-        
-    }
+  .footer-section {
+    height: 82%;
+  }
 
-    .p--socialmedia {
-        margin-top: 10%;
-    }
+  .p--socialmedia {
+    margin-top: 10%;
+  }
 
-    #login {
-        margin-bottom: 4%;
-    }
+  #login {
+    margin-bottom: 4%;
+  }
 }
+
+// .footer-fix {
+//   padding: 1.5rem 0 1.5rem 0;
+// }

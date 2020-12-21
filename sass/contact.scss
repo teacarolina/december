@@ -3,9 +3,10 @@
   justify-content: center;
   flex-direction: column;
   border: 4px solid white;
-  min-width: 50rem;
   border-radius: 15px;
   outline: none;
+  padding: 5rem;
+  margin: 10rem 0 10rem 0;
 }
 
 .contact-item {
@@ -27,7 +28,7 @@
 }
 
 .contact-input {
-  min-width: 25rem;
+  width: 100%;
   min-height: 2.4rem;
 }
 
@@ -35,8 +36,8 @@
   min-height: 10rem;
 }
 
- .contact-button { 
-position: relative;
+.contact-button {
+  position: relative;
   background: none;
   color: white;
   text-transform: uppercase;
@@ -79,9 +80,6 @@ position: relative;
   }
 }
 
-
-
-
 /* .contact-button {
   margin: 0.5rem;
   min-width: 10rem;
@@ -99,3 +97,18 @@ position: relative;
   outline: none;
 }
  */
+
+.label-input {
+  width: 100%;
+}
+
+@media only screen and (max-width: 450px) {
+  .label-input {
+    width: 100%;
+    padding: 0 2rem 1rem 2rem;
+  }
+
+  .contact-container {
+    padding: 0;
+  }
+}
