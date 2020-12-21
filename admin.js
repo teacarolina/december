@@ -23,7 +23,7 @@ function save() {
   var price = document.querySelector("#product--price").value;
   //to give each card a specific id (random number 0-1)
   var id = Math.random();
-  var picture = JSON.parse(localStorage.getItem("urls")) //LA TILL DET HÄR
+  var picture = JSON.parse(localStorage.getItem("urls")); //LA TILL DET HÄR
 
   //console.log(id)
 
@@ -119,8 +119,9 @@ function view() {
         //choosing how they should appear on page
         homePage.innerHTML += `
         
+      
         <div class="card">  
-        <img class="product-image" src="${item.picture[index].pictureUrls}">
+        <img class="product-image" src="${item.picture[index].pictureUrls}" style="100%">
         <h1>${item.name}</h1>
         <p class="price">${item.price}</p>
         <p>${item.description}</p>
@@ -140,7 +141,7 @@ function view() {
         homePage.innerHTML += `
       
         <div class="card">  
-        <img class="product-image" src="${item.picture[index].pictureUrls}">
+        <img class="product-image" src="${item.picture[index].pictureUrls}" style="100%">
         <h1 class="product-title">${item.name}</h1>
         <p class="product-price">${item.price}</p>
         <p>${item.description}</p>

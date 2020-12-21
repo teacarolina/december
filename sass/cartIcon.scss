@@ -1,6 +1,7 @@
 .cart-container {
   display: flex;
   justify-content: flex-end;
+  margin-left: auto;
 }
 
 ul {
@@ -42,7 +43,7 @@ table {
 }
 
 /* clear cart button */
-.btn-clear-cart {
+.checkout-button {
   display: inline-block;
   height: 2.4rem;
   padding: 0 30px;
@@ -74,4 +75,17 @@ td {
 .total,
 .cart-total {
   text-align: end;
+}
+
+.navbar {
+  justify-content: start;
+  max-width: 100%;
+}
+
+.nav-link {
+  text-align: center;
+}
+
+.nav-link:hover {
+  background-color: lightgray;
 }
