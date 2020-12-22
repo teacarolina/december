@@ -390,6 +390,14 @@ td {
   color: white;
   text-decoration: none; }
 
+.footer-section-cart {
+  height: 60vh;
+  width: 100%; }
+
+.footer-fix {
+  height: 60vh;
+  width: 100%; }
+
 @media only screen and (max-width: 767px) {
   .footer--div {
     width: 100%; }
