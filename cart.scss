@@ -1,19 +1,7 @@
 :root {
   --modal-duration: 1s;
-  // --modal-color: #428bca;
 }
 
-/* body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: #f4f4f4;
-    font-size: 17px;
-    line-height: 1.6;
-    display: flex;
-    height: 100vh;
-    align-items: center;
-    justify-content: center;
-  }
-   */
 .button-modal {
   background: #428bca;
   padding: 1em 2em;
@@ -201,25 +189,6 @@
   }
 }
 
-/* .flex-cart-items {
-    display: flex;
-    flex-direction: row;
-    border-bottom: 1px solid black;
-    padding-right: 20px;
-    
-    
-}
-
-.remove-x-button {
-    padding-right: 20px;
-    padding-left: 20px;
-}
-
-.product {
-    padding-left: 20px;
-}
-
- */
 @media only screen and (max-width: 767px) {
   .cart--row {
     width: 100%;

@@ -5,7 +5,7 @@
   background-position: center;
   background-repeat: no-repeat;
   position: relative;
-  height: 60rem;
+  height: 100vh;
 }
 
 .site-title {
@@ -41,7 +41,7 @@
 #header-picture-button {
   position: relative;
   background: none;
-  color: #427580;
+  color:white;
   text-transform: uppercase;
   text-decoration: none;
   border: 0.2em solid #427580;
@@ -82,28 +82,3 @@
   }
 }
 
-@media (min-width: 280px) and (max-width: 320px) {
-  .site-title {
-    font-size: 25px;
-  }
-
-  #header-h {
-    margin-top: 55%;
-  }
-}
-
-@media only screen and (max-width: 767px) {
-  #header-h {
-    font-size: 35px;
-  }
-
-  .header-picture-text {
-    margin-top: 10%;
-  }
-}
-
-@media only screen and (max-width: 768px) {
-  .header-picture-text {
-    margin-top: 6%;
-  }
-}
