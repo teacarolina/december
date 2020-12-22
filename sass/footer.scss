@@ -11,6 +11,7 @@
 .footer--div {
   width: 20%;
   text-align: center;
+  margin-top: 20px;
 }
 
 .footer--icons {
@@ -31,6 +32,7 @@
 
 .link--socialmedia {
   color: black;
+  font-size: 2rem;
 }
 
 .link--socialmedia:visited {
@@ -52,6 +54,16 @@
 .footer--link:hover {
   color: white;
   text-decoration: none;
+}
+
+.footer-section-cart {
+  height: 60vh;
+  width: 100%;
+}
+
+.footer-fix {
+  height: 60vh;
+  width: 100%;
 }
 
 @media only screen and (max-width: 767px) {

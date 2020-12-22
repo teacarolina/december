@@ -6,6 +6,7 @@
   border-radius: 15px;
   outline: none;
   padding: 5rem;
+  height: 80vh;
 }
 
 .contact-item {
@@ -79,35 +80,6 @@
   }
 }
 
-/* .contact-button {
-  margin: 0.5rem;
-  min-width: 10rem;
-  min-height: 2.4rem;
-  background-color: A4C1C5;
-  font-weight: 400;
-}
-
-.contact-button:hover {
-  background-color: white;
-} */
-
-.inga-kanter {
-  border-radius: 15px;
-  outline: none;
-}
- 
-
 .label-input {
   width: 100%;
-}
-
-@media only screen and (max-width: 620px) {
-  .label-input {
-    width: 100%;
-    padding: 0 2rem 0 2rem;
-  }
-
-  .contact-container {
-    padding: 2.5rem 0 2.5rem 0;
-  }
 }

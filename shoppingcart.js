@@ -131,7 +131,7 @@ function updateView() {
   var quant = parseInt(productsInCart.length);
 
   if (cart) {
-    cart.innerHTML = `${total}`;
+    cart.innerHTML = `${total}.00 SEK`;
   }
   //TE
   if (totalPriceOnCartSite) {
@@ -268,7 +268,6 @@ function displayCart() {
                     <input class="cart-quantity-input" type="number" onkeyup="onQuantityChanged(this)" onchange="onQuantityChanged(this)" value="${product.quantity}">
                     <button class="remove" onclick="removeProduct(this)" data-id="${product.productId}">X</button>
                   </td>
-
         </tr>
         `;
     });
