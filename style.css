@@ -576,6 +576,9 @@ td {
   #btn-checkout:hover::after {
     left: 80%; }
 
+.img-in-cart {
+  width: 120px; }
+
 /* .flex-cart-items {
     display: flex;
     flex-direction: row;
@@ -601,4 +604,24 @@ td {
   .th-cart {
     font-size: 1rem; }
   #section-h2 {
-    font-size: 1.5rem; } }
+    font-size: 1.5rem; }
+  .cart-quantity-input {
+    font-size: 0.7rem;
+    width: 20px;
+    height: 20px; }
+  .x-botton-in-cart {
+    width: 20px;
+    height: 20px;
+    font-size: 0.7rem; }
+  .img-in-cart {
+    width: 50px; }
+  .total-in-cart {
+    font-size: 1rem; }
+  .cart-total-price {
+    font-size: 1rem; }
+  /* .modal-content {
+  height: 30%;
+  width: 30%;
+} */
+  .shoe-icon {
+    font-size: 3rem; } }
