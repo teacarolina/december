@@ -70,6 +70,7 @@ td {
   padding: 12px 15px;
   text-align: center;
   border-bottom: 1px solid #e1e1e1;
+  word-wrap: break-word;
 }
 
 .cart-quantity-input,
@@ -97,4 +98,9 @@ td {
 
 .img-popup-cart {
   width: 60px;
+}
+
+.cart-title,
+.cart-price {
+  max-width: 6rem;
 }

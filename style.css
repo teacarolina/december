@@ -93,7 +93,8 @@ body {
   text-align: center;
   font-family: arial;
   text-decoration: none;
-  margin: 1rem; }
+  margin: 1rem;
+  overflow: hidden; }
 
 .price {
   color: grey;
@@ -205,7 +206,8 @@ th,
 td {
   padding: 12px 15px;
   text-align: center;
-  border-bottom: 1px solid #e1e1e1; }
+  border-bottom: 1px solid #e1e1e1;
+  word-wrap: break-word; }
 
 .cart-quantity-input,
 .remove {
@@ -227,6 +229,10 @@ td {
 
 .img-popup-cart {
   width: 60px; }
+
+.cart-title,
+.cart-price {
+  max-width: 6rem; }
 
 .contact-container {
   display: flex;
@@ -554,11 +560,7 @@ td {
   .quantity-popup {
     font-size: 0.9rem;
     width: 40px;
-    height: 30px; }
-  .remove-button-popup {
-    width: 30px;
-    height: 30px;
-    font-size: 0.9rem; } }
+    height: 30px; } }
 
 @media only screen and (max-width: 767px) {
   .cart--row {
