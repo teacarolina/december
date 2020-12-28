@@ -16,18 +16,6 @@ ul {
   display: none;
 }
 
-.cart-menu:hover .cart-content {
-  display: block;
-  position: absolute;
-  right: 0;
-  top: 100%;
-  z-index: 1;
-  padding: 1.3rem;
-  min-height: 27rem;
-  min-width: 25rem;
-  background-color: white;
-}
-
 .cart-content {
   text-align: center;
 }
@@ -105,4 +93,8 @@ td {
 
 .nav-link:hover {
   background-color: lightgray;
+}
+
+.img-popup-cart {
+  width: 60px;
 }

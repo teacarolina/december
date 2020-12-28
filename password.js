@@ -1,5 +1,5 @@
 //password for admin on homepage
-var userResponse = "N/A";
+let userResponse = "N/A";
 function askPass() {
   "use strict";
   userResponse = prompt("What's the password?", "00000");
@@ -8,5 +8,5 @@ function askPass() {
   }
 }
 
-var login = document.querySelector("#login");
+let login = document.querySelector("#login");
 login.addEventListener("click", askPass);

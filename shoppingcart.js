@@ -78,15 +78,15 @@ function addToCart(product) {
   row.innerHTML = `
         <tr>
               <td>
-          <img src="${product.productImage}" width=60>
+          <img src="${product.productImage}" class="img-popup-cart">
       </td>
             <td>
                 ${product.productTitle}
             </td>
             <td class="cart-price">${product.productPrice}</td>
             <td>
-            <input class="cart-quantity-input" type="number" onkeyup="onQuantityChanged(this)" onchange="onQuantityChanged(this)" value="${product.quantity}">
-                <button class="remove" onclick="removeProduct(this)" data-id="${product.productId}">X</button>
+            <input class="cart-quantity-input quantity-popup" type="number" onkeyup="onQuantityChanged(this)" onchange="onQuantityChanged(this)" value="${product.quantity}">
+                <button class="remove remove-button-popup" onclick="removeProduct(this)" data-id="${product.productId}">X</button>
             </td>
 
         </tr>
@@ -119,7 +119,6 @@ function updateView() {
 
   const cart = document.querySelector(".cart-total"),
     quantSpan = document.querySelector(".cart-icon-quant");
-  //EOCHT
   let totalPriceOnCartSite = document.querySelector(".cart-total-price");
 
   productsInCart.map(function (productInStorage, index) {
@@ -133,7 +132,7 @@ function updateView() {
   if (cart) {
     cart.innerHTML = `${total}.00 SEK`;
   }
-  //TE
+  
   if (totalPriceOnCartSite) {
     totalPriceOnCartSite.innerHTML = `${total}.00 SEK`;
   }
@@ -233,14 +232,14 @@ function loadFromLocalStorage() {
     // pull the content
     row.innerHTML = `
         <tr>
-          <td>
-            <img src="${product.productImage}" width=60>
-          </td>
-              <td class="cart-title">${product.productTitle}</td>
+            <td>
+                <img src="${product.productImage}" class="img-popup-cart">
+            </td>
+            <td class="cart-title">${product.productTitle}</td>
                 <td class="cart-price">${product.productPrice}</td>
                   <td>
-                    <input class="cart-quantity-input" type="number" onkeyup="onQuantityChanged(this)" onchange="onQuantityChanged(this)" value="${product.quantity}">
-                    <button class="remove" onclick="removeProduct(this)" data-id="${product.productId}">X</button>
+                    <input class="cart-quantity-input quantity-popup" type="number" onkeyup="onQuantityChanged(this)" onchange="onQuantityChanged(this)" value="${product.quantity}">
+                    <button class="remove remove-button-popup" onclick="removeProduct(this)" data-id="${product.productId}">X</button>
                   </td>
         </tr>
         `;
@@ -260,13 +259,13 @@ function displayCart() {
       cartRow.innerHTML += `
         <tr>
           <td>
-            <img src="${product.productImage}" width=120>
+            <img src="${product.productImage}" class="img-in-cart">
           </td>
               <td>${product.productTitle}</td>
                 <td class="cart-price">${product.productPrice}</td>
                   <td>
-                    <input class="cart-quantity-input" type="number" onkeyup="onQuantityChanged(this)" onchange="onQuantityChanged(this)" value="${product.quantity}">
-                    <button class="remove" onclick="removeProduct(this)" data-id="${product.productId}">X</button>
+                    <input class="cart-quantity-input cart-quantity-input-in-cart" type="number" onkeyup="onQuantityChanged(this)" onchange="onQuantityChanged(this)" value="${product.quantity}">
+                    <button class="remove x-botton-in-cart" onclick="removeProduct(this)" data-id="${product.productId}">X</button>
                   </td>
         </tr>
         `;

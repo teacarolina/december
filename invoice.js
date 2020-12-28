@@ -1,8 +1,8 @@
 //function below creates invoice, downloaded open-source https://parall.ax/products/jspdf to use their code
 function generatePDF() {
-  var doc = new jsPDF();
+  const doc = new jsPDF();
   doc.setFontSize(24);
-  var logoText = document.querySelector("#logoText").innerHTML;
+  const logoText = document.querySelector("#logoText").innerHTML;
   doc.text(60, 20, logoText);
   doc.text(20, 50, "Invoice");
   doc.setFontSize(16);
@@ -19,7 +19,7 @@ function generatePDF() {
   doc.text(20, 90, "Pay within:");
   doc.text(90, 90, "30 days");
   doc.text(20, 100, "Total price:");
-  var totalInvoicePrice = document.querySelector(".cart-total-price").innerHTML;
+  const totalInvoicePrice = document.querySelector(".cart-total-price").innerHTML;
   doc.text(90, 100, totalInvoicePrice);
   doc.setFontSize(16);
   doc.text(20, 120, "Payment with banktransfer");
@@ -38,5 +38,5 @@ function generatePDF() {
   doc.save("document.pdf");
 }
 
-var buttonPDF = document.querySelector("#downloadPDF");
+let buttonPDF = document.querySelector("#downloadPDF");
 buttonPDF.addEventListener("click", generatePDF);
