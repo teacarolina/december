@@ -175,6 +175,13 @@
   }
 }
 
+@media only screen and (max-width: 400px) {
+  .inside-cart-title,
+  .inside-cart-price {
+    max-width: 4rem;
+  }
+}
+
 @media only screen and (max-width: 280px) {
   .card {
     width: 100%;

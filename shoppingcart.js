@@ -80,7 +80,7 @@ function addToCart(product) {
               <td>
           <img src="${product.productImage}" class="img-popup-cart">
       </td>
-            <td>
+            <td class="product-title">
                 ${product.productTitle}
             </td>
             <td class="cart-price">${product.productPrice}</td>
@@ -261,8 +261,8 @@ function displayCart() {
           <td>
             <img src="${product.productImage}" class="img-in-cart">
           </td>
-              <td>${product.productTitle}</td>
-                <td class="cart-price">${product.productPrice}</td>
+              <td class="inside-cart-title">${product.productTitle}</td>
+                <td class="inside-cart-price">${product.productPrice}</td>
                   <td>
                     <input class="cart-quantity-input cart-quantity-input-in-cart" type="number" onkeyup="onQuantityChanged(this)" onchange="onQuantityChanged(this)" value="${product.quantity}">
                     <button class="remove x-botton-in-cart" onclick="removeProduct(this)" data-id="${product.productId}">X</button>
