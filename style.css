@@ -236,6 +236,9 @@ td {
 .nav-link:hover {
   background-color: lightgray; }
 
+.img-popup-cart {
+  width: 60px; }
+
 .contact-container {
   display: flex;
   justify-content: center;

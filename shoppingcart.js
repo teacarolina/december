@@ -242,7 +242,7 @@ function loadFromLocalStorage() {
     row.innerHTML = `
         <tr>
             <td>
-                <img src="${product.productImage}" width=60>
+                <img src="${product.productImage}" class="img-popup-cart">
             </td>
             <td class="cart-title">${product.productTitle}</td>
                 <td class="cart-price">${product.productPrice}</td>
