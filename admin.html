@@ -1,82 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <!--Link for bootstrap-->
- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--Link for bootstrap-->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+      integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+      integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous"
+    />
     <!--HTML icon-->
-    <link rel="icon" href="images/sneakers-icon.png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
-    <link rel="stylesheet" href="style.css"/>
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Libre+Barcode+39+Text&display=swap" rel="stylesheet">
-
+    <link rel="icon" href="images/sneakers-icon.png" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+      integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Libre+Barcode+39+Text&display=swap"
+      rel="stylesheet"
+    />
     <script src="admin.js" defer></script>
     <title>Admin</title>
-</head>
-<!--Call function view() on load-->
-<body onload="view();">
+  </head>
+  <!--Call function view() on load-->
+
+  <body onload="view();">
     <header>
       <div class="site-title">
         <h3 class="site-title">SNEAKERS INSTITUTET</h3>
-          
-              </div>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                   <a class="navbar-brand" href="#"></a>
-                   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                     <span class="navbar-toggler-icon"></span>
-                   </button>
-                   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                     <div class="navbar-nav">
-                       <a class="nav-link active" href="index.html">Home<span class="sr-only">(current)</span></a>
-                       <a class="nav-link" href="admin-index.html">Admin Home Page</a>
-                     </div>
-                   </div>
-        </nav>
+      </div>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#"></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-link active" href="index.html"
+              >Home<span class="sr-only">(current)</span></a
+            >
+            <a class="nav-link" href="admin-index.html">Admin Home Page</a>
+          </div>
+        </div>
+      </nav>
     </header>
     <!--Inputform for admin to add products to website-->
     <div class="input--div">
       <h2>Add product</h2>
       <form class="input--form">
-        <label for="product--name">Name</label><br>
-        <input type="text" id="product--name" name="name"><br><br>
-        <label for="product--description">Description</label><br>
-        <input type="text" id="product--description" name="description"><br><br>
-        <label for="product--price">Price</label><br>
-        <input type="number" id="product--price" name="price"><br><br>
+        <label for="product--name">Name</label><br />
+        <input type="text" id="product--name" name="name" /><br /><br />
+        <label for="product--description">Description</label><br />
+        <input
+          type="text"
+          id="product--description"
+          name="description"
+        /><br /><br />
+        <label for="product--price">Price</label><br />
+        <input type="number" id="product--price" name="price" /><br /><br />
       </form>
       <button onclick="saveUrls();" class="picture--add">Add picture</button>
-      <button onclick="save();" onblur ="saveUrls();" class="product--add" data-id="button">Submit</button>
+      <button
+        onclick="save();"
+        onblur="saveUrls();"
+        class="product--add"
+        data-id="button"
+      >
+        Submit
+      </button>
     </div>
     <!--Vi hade tidigare skrivit endast id inte data-id???-->
 
     <footer class="footer-section footer-fix">
       <div class="footer--div">
-       <h2>Contact</h2>
-       <a class="footer--link" href="contact.html">Send us a message</a><br><br>
+        <h2>Contact</h2>
+        <a class="footer--link" href="contact.html">Send us a message</a
+        ><br /><br />
         <h3>WE💙YOU</h3>
         <p>Free returns</p>
-        <p>Free shipment*<br><small>*For orders over 500sek</small></p>
+        <p>Free shipment*<br /><small>*For orders over 500sek</small></p>
       </div>
       <div class="footer--div">
         <div>
-        <span class="footer--icons"><i class="fab fa-cc-visa"></i></span>
-        <span class="footer--icons"><i class="fab fa-cc-mastercard"></i></span>
-        <span class="footer--icons"><i class="fab fa-cc-amex"></i></span>
-        <span class="footer--icons"><i class="fab fa-cc-apple-pay"></i></span>
-        <span class="footer--icons"><i class="fab fa-dhl"></i></span>
-        <span class="footer--icons"><i class="fab fa-fedex"></i></span> 
+          <span class="footer--icons"><i class="fab fa-cc-visa"></i></span>
+          <span class="footer--icons"
+            ><i class="fab fa-cc-mastercard"></i
+          ></span>
+          <span class="footer--icons"><i class="fab fa-cc-amex"></i></span>
+          <span class="footer--icons"><i class="fab fa-cc-apple-pay"></i></span>
+          <span class="footer--icons"><i class="fab fa-dhl"></i></span>
+          <span class="footer--icons"><i class="fab fa-fedex"></i></span>
         </div>
         <p class="p--socialmedia">Follow our story</p>
-        <p><a class="link--socialmedia" href="https://www.instagram.com/sneakersinstitutet/"><i class="fab fa-instagram"></i></a></p>
+        <p>
+          <a
+            class="link--socialmedia"
+            href="https://www.instagram.com/sneakersinstitutet/"
+            ><i class="fab fa-instagram"></i
+          ></a>
+        </p>
       </div>
       <div class="footer--div">
         <p>Admin Home Page</p>
-        </div>
+      </div>
     </footer>
-</body>
+  </body>
 </html>

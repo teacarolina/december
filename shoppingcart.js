@@ -17,10 +17,6 @@ function loadEventListeners() {
   // when a new 'products' is added
   if (products) products.addEventListener("click", addProduct);
 
-  // when the 'X' button is clicked from the shopping cart
-  //if (shoppingCartContent)
-  //  shoppingCartContent.addEventListener("click", removeProduct);
-
   // load from local storage
   document.addEventListener("DOMContentLoaded", loadFromLocalStorage);
 }
@@ -40,7 +36,6 @@ function addProduct(e) {
 }
 // This is to read the information of the product via HTML
 function getProductInfo(product) {
-  ///// comment
   const productInfo = {
     productImage: product.querySelector(".product-image").src,
     productTitle: product.querySelector(".product-title").textContent,
@@ -83,15 +78,15 @@ function addToCart(product) {
   row.innerHTML = `
         <tr>
               <td>
-          <img src="${product.productImage}" width=60>
+          <img src="${product.productImage}" class="img-popup-cart">
       </td>
             <td>
                 ${product.productTitle}
             </td>
             <td class="cart-price">${product.productPrice}</td>
             <td>
-            <input class="cart-quantity-input" type="number" onkeyup="onQuantityChanged(this)" onchange="onQuantityChanged(this)" value="${product.quantity}">
-                <button class="remove" onclick="removeProduct(this)" data-id="${product.productId}">X</button>
+            <input class="cart-quantity-input quantity-popup" type="number" onkeyup="onQuantityChanged(this)" onchange="onQuantityChanged(this)" value="${product.quantity}">
+                <button class="remove remove-button-popup" onclick="removeProduct(this)" data-id="${product.productId}">X</button>
             </td>
 
         </tr>
@@ -99,8 +94,6 @@ function addToCart(product) {
 
   // add to the shopping cart
   shoppingCartContent.appendChild(row);
-
-  //updateCartTotal(product.productPrice, 1);
 
   // add - localstorage for products added (1/4)
   saveToLocalStorage(product);
@@ -126,8 +119,7 @@ function updateView() {
 
   const cart = document.querySelector(".cart-total"),
     quantSpan = document.querySelector(".cart-icon-quant");
-    //EOCHT
-    let totalPriceOnCartSite = document.querySelector(".cart-total-price");
+  let totalPriceOnCartSite = document.querySelector(".cart-total-price");
 
   productsInCart.map(function (productInStorage, index) {
     var price = parseInt(productInStorage.productPrice);
@@ -139,11 +131,10 @@ function updateView() {
 
   if (cart) {
     cart.innerHTML = `${total}.00 SEK`;
-    
   }
-  //TE
-  if (totalPriceOnCartSite){
-    totalPriceOnCartSite.innerHTML =  `${total}.00 SEK`;
+  
+  if (totalPriceOnCartSite) {
+    totalPriceOnCartSite.innerHTML = `${total}.00 SEK`;
   }
   if (quantSpan) {
     quantSpan.innerHTML = `${quantity}`;
@@ -192,7 +183,7 @@ function removeProduct(e) {
 
 // function for removeProductLocalStorage > remove from the local storage
 function removeProductLocalStorage(productId) {
-  //get the local storage data 
+  //get the local storage data
   let productsInStorage = getProductsFromStorage();
 
   //loop through the array to find the index to remove
@@ -246,10 +237,10 @@ function loadFromLocalStorage() {
             </td>
             <td class="cart-title">${product.productTitle}</td>
                 <td class="cart-price">${product.productPrice}</td>
-                 <td>
-                <input class="cart-quantity-input" type="number" onkeyup="onQuantityChanged(this)" onchange="onQuantityChanged(this)" value="${product.quantity}">
-                <button class="remove" onclick="removeProduct(this)" data-id="${product.productId}">X</button>
-            </td>
+                  <td>
+                    <input class="cart-quantity-input quantity-popup" type="number" onkeyup="onQuantityChanged(this)" onchange="onQuantityChanged(this)" value="${product.quantity}">
+                    <button class="remove remove-button-popup" onclick="removeProduct(this)" data-id="${product.productId}">X</button>
+                  </td>
         </tr>
         `;
     shoppingCartContent.appendChild(row);
@@ -258,68 +249,60 @@ function loadFromLocalStorage() {
 
 //function to display cart items on cart.html
 function displayCart() {
-  let cartItemsSide = JSON.parse(localStorage.getItem('products'));
-  let cartRow = document.querySelector('.put-cart-info')
-  
+  let cartItemsSide = JSON.parse(localStorage.getItem("products"));
+  let cartRow = document.querySelector(".put-cart-info");
+
   //if we have anything in localstorage and displayed on cart.html
-  if (cartItemsSide && cartRow)
-   {
-      cartRow.innerHTML = '';
-      Object.values(cartItemsSide).map(product => {
-          cartRow.innerHTML += `
-                <tr>
-                      <td>
-                  <img src="${product.productImage}" class="img-in-cart">
-              </td>
-                    <td>
-                        ${product.productTitle}
-                    </td>
-                    <td class="cart-price">${product.productPrice}</td>
-                    <td>
-                    <input class="cart-quantity-input" type="number" onkeyup="onQuantityChanged(this)" onchange="onQuantityChanged(this)" value="${product.quantity}">
-                        <button class="remove x-botton-in-cart" onclick="removeProduct(this)" data-id="${product.productId}">X</button>
-                    </td>
-        
-                </tr>
-            `;
-        
-         
-      });
-     
+  if (cartItemsSide && cartRow) {
+    cartRow.innerHTML = "";
+    Object.values(cartItemsSide).map((product) => {
+      cartRow.innerHTML += `
+        <tr>
+          <td>
+            <img src="${product.productImage}" class="img-in-cart">
+          </td>
+              <td>${product.productTitle}</td>
+                <td class="cart-price">${product.productPrice}</td>
+                  <td>
+                    <input class="cart-quantity-input cart-quantity-input-in-cart" type="number" onkeyup="onQuantityChanged(this)" onchange="onQuantityChanged(this)" value="${product.quantity}">
+                    <button class="remove x-botton-in-cart" onclick="removeProduct(this)" data-id="${product.productId}">X</button>
+                  </td>
+        </tr>
+        `;
+    });
+  }
+}
+
+displayCart();
+
+//function below creates a modal
+let cartRow = document.querySelector(".put-cart-info");
+
+if (cartRow) {
+  //get DOM elements
+  const modal = document.querySelector("#my-modal");
+  const modalBtn = document.querySelector("#btn-checkout");
+  const closeBtn = document.querySelector(".close");
+
+  //events added
+  modalBtn.addEventListener("click", openModal);
+  closeBtn.addEventListener("click", closeModal);
+  window.addEventListener("click", outsideClick);
+
+  //open modal
+  function openModal() {
+    modal.style.display = "block";
+  }
+
+  //close modal
+  function closeModal() {
+    modal.style.display = "none";
+  }
+
+  //close modal if outside click
+  function outsideClick(e) {
+    if (e.target == modal) {
+      modal.style.display = "none";
     }
   }
-
-  displayCart()
-
-//function below creates a modal 
-  let cartRow = document.querySelector('.put-cart-info')
-
-  if (cartRow) {
-
-//get DOM elements
-const modal = document.querySelector('#my-modal');
-const modalBtn = document.querySelector('#btn-checkout');
-const closeBtn = document.querySelector('.close');
-
-//events added
-modalBtn.addEventListener('click', openModal);
-closeBtn.addEventListener('click', closeModal);
-window.addEventListener('click', outsideClick);
-
-//open modal
-function openModal() {
-  modal.style.display = 'block';
 }
-
-//close modal
-function closeModal() {
-  modal.style.display = 'none';
-}
-
-//close modal if outside click
-function outsideClick(e) {
-  if (e.target == modal) {
-    modal.style.display = 'none';
-  }
-}
-  }
